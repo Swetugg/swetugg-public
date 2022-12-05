@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using swetugg_public.DbModels;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddDbContext<SwetuggContext>(options =>
+  options.UseSqlServer(builder.Configuration.GetConnectionString("Swetugg")));
 
 var app = builder.Build();
 
