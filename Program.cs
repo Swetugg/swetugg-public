@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using swetugg_public;
 using swetugg_public.DbModels;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,8 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-builder.Services.AddDbContext<SwetuggContext>(options =>
-  options.UseSqlServer(builder.Configuration.GetConnectionString("Swetugg")));
+builder.Services.AddDbContext<SwetuggContext>(options => 
+  options.UseSqlServer(builder.Configuration.GetConnectionString("Swetugg"))
+  .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
+
+builder.Services.AddScoped<ConferenceService>();
 
 var app = builder.Build();
 

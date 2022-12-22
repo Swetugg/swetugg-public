@@ -1,7 +1,15 @@
 @page
-@inject DbModels.SwetuggContext conferenceContext
+@inject ConferenceService conferenceService
 @{
-    var conference = conferenceContext.Conferences.First(c => c.Slug.Equals("sthlm-2023"));
+    var conference = conferenceService.Get("sthlm-2023");
+    if (conference == null)
+        throw new Exception("Conference not found in database");
 }
 
 <h1>Welcome to @conference.Name @conference.Start - @conference.End</h1>
+
+Speakers: @conference.Speakers.Count
+SpeakerImages: @conference.Speakers.SelectMany(s => s.SpeakerImages).Count()
+Sponsors: @conference.Sponsors.Count
+Rooms: @conference.Rooms.Count
+Slots: @conference.Slots.Count
