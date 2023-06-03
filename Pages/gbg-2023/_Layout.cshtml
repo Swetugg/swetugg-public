@@ -94,24 +94,24 @@
                     <ul class="nav navbar-nav">
                         <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                         <li class="hidden">
-                            <a href="#page-top"></a>
+                            <a asp-page="/" asp-fragment="page-top"></a>
                         </li>
 
                         <li class="page-scroll">
-                            <a href="@Url.Action("Index", "Conference")#speakers" data-target="#speakers">Speakers</a>
+                            <a href="/gbg-2023#speakers" data-target="#speakers">Speakers</a>
                         </li>
                          <li class="page-scroll">
-                            <a href="@Url.Action("Index", "Conference")#schedule" data-target="#schedule">Schedule</a>
+                            <a href="/gbg-2023#schedule" data-target="#schedule">Schedule</a>
                         </li> 
                             
                         <li class="page-scroll">
-                            <a href="@Url.Action("Index", "Conference")#sponsor" data-target="#sponsor">Sponsors</a>
+                            <a href="/gbg-2023#sponsor" data-target="#sponsor">Sponsors</a>
                         </li>
                         <li class="page-scroll">
-                            <a href="@Url.Action("Index", "Conference")#tickets" data-target="#tickets">Tickets</a>
+                            <a href="/gbg-2023#tickets" data-target="#tickets">Tickets</a>
                         </li>
                         <li class="page-scroll">
-                            <a href="@Url.Action("CodeOfConduct", "Conference")">Code of Conduct</a>
+                            <a href="/gbg-2023/codeofconduct">Code of Conduct</a>
                         </li>
                         @*<li class="page-scroll">
                             <a href="@Url.Action("Index", "Conference")#contact" data-target="#contact">Contact us</a>
