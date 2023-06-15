@@ -39,6 +39,20 @@
             ticketSalesOpen = currentTime > ticketsOpenDateTime;
         }
     }
+
+    var activeSections = new[] {
+        ("previousLinks", true),
+        ("sponsor", true),
+        ("speakers", true),
+        ("sessions", false),
+        ("schedule", false),
+        ("tickets", true),
+        ("contact", true),
+        ("members", true)
+    }
+    .Where(section => section.Item2)
+    .Select((section, index) => (id: section.Item1, active: section.Item2, even: index % 2 > 0))
+    .ToDictionary(section => section.id);
 }
 
 <section class="intro">
@@ -66,7 +80,9 @@
     </div>
 </section>
 
-<section id="previousLinks" class="odd-section content-section text-center">
+@if(activeSections.ContainsKey("previousLinks"))
+{
+<section id="previousLinks" class="@(activeSections["previousLinks"].even ? "even" : "odd")-section content-section text-center">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
@@ -165,8 +181,11 @@
         </div>
     </div>
 </section>
+}
 
-<section id="sponsor" class="even-section content-section">
+@if(activeSections.ContainsKey("sponsor"))
+{
+<section id="sponsor" class="@(activeSections["sponsor"].even ? "even" : "odd")-section content-section">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
@@ -281,11 +300,11 @@
         }
     </div>
 </section>
+}
 
-
-@if (conference.Speakers.Any())
+@if (conference.Speakers.Any() && activeSections.ContainsKey("speakers"))
 {
-    <section id="speakers" class="odd-section content-section text-center">
+    <section id="speakers" class="@(activeSections["speakers"].even ? "even" : "odd")-section content-section text-center">
         <div class="program-section">
             <div class="container">
                 <div class="row">
@@ -336,9 +355,9 @@
         </div>
     </section>
 }
-else
+@if(!conference.Speakers.Any() && activeSections.ContainsKey("speakers"))
 {
-    <section id="speakers" class="odd-section content-section">
+    <section id="speakers" class="@(activeSections["speakers"].even ? "even" : "odd")-section content-section">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
@@ -399,7 +418,9 @@ else
     </section>
 }
 
-@*<section id="sessions" class="even-section content-section">
+@* @if(activeSections.ContainsKey("sessions"))
+{
+<section id="sessions" class="@(activeSections["sessions"].even ? "even" : "odd")-section content-section">
     <div class="program-section">
             <div class="container">
                 <div class="row">
@@ -438,47 +459,124 @@ else
                 </div>
             </div>
     </div>
-</section>*@
+</section>
+} *@
 
-@* <section id="schedule" class="even-section content-section">
-        <div class="schedule-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h1 class="noSubtitle">Schedule</h1>
-                    </div>
+@if(activeSections.ContainsKey("schedule"))
+{
+<section id="schedule" class="@(activeSections["schedule"].even ? "even" : "odd")-section content-section">
+    <div class="schedule-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="noSubtitle">Schedule</h1>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
 
-                        @foreach (var day in conference.Slots.GroupBy(s => s.Start.Date))
-                        {
-                            var width = 90 / conference.Rooms.Count();
+                    @foreach (var day in conference.Slots.GroupBy(s => s.Start.Date))
+                    {
+                        var width = 90 / conference.Rooms.Count();
 
-                            <h2>@day.Key.ToString("dddd, yyyy-MM-dd")</h2>
-                            <table class="table schema rwd-table">
-                                <thead>
-                                    <tr>
+                        <h2>@day.Key.ToString("dddd, yyyy-MM-dd")</h2>
+                        <table class="table schema rwd-table">
+                            <thead>
+                                <tr>
 
-                                        <th style="width: 10%">Time</th>
+                                    <th style="width: 10%">Time</th>
 
-                                        @foreach (var room in conference.Rooms)
-                                        {
-                                            <th style="width: @width%">@room.Name</th>
-                                        }
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var slot in day)
+                                    @foreach (var room in conference.Rooms)
                                     {
+                                        <th style="width: @width%">@room.Name</th>
+                                    }
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var slot in day)
+                                {
 
-                                        if (string.IsNullOrEmpty(slot.Title))
+                                    if (string.IsNullOrEmpty(slot.Title))
+                                    {
+                                        <tr>
+                                            <th style="display: table-cell; text-align: center; width: 60px;">
+                                                @slot.Start.ToString("HH:mm")<br />|<br />@slot.End.ToString("HH:mm")
+                                            </th>
+
+                                            @foreach (var room in conference.Rooms)
+                                            {
+                                                var roomSlot = slot.RoomSlots.SingleOrDefault(rs => rs.RoomId == room.Id && (rs.AssignedSession == null || rs.AssignedSession.Published));
+                                                bool isChanged = roomSlot != null && roomSlot.IsChanged;
+                                                string changedClass = isChanged ? "changed" : "unchanged";
+                                                var session = roomSlot != null ? roomSlot.AssignedSession : null;
+                                                if (roomSlot != null)
+                                                {
+                                                    <td data-th="@room.Name" class="@changedClass">
+                                                        <div class="schemacell">
+                                                            @if (isChanged)
+                                                            {
+                                                                <span class="pull-right glyphicon glyphicon-info-sign"></span>
+                                                            }
+                                                            @if (session != null)
+                                                            {
+                                                                var sessionSpeakers = session.Speakers.ToList();
+                                                                if (sessionSpeakers.Count > 0)
+                                                                {
+                                                                    var firstSpeaker = sessionSpeakers.First();
+                                                                    <a href="@Url.Action("Speaker", new {speakerSlug = firstSpeaker.Slug})#@session.Slug">
+                                                                        <div class="schemacell-rad1v2">
+                                                                            @session.Name
+                                                                        </div>
+                                                                    </a>
+                                                                    <div class="schemacell-rad2v2">
+                                                                        @foreach (var speaker in sessionSpeakers)
+                                                                        {
+                                                                            @Html.ActionLink(speaker.Name, "Speaker", new { speakerSlug = speaker.Slug })<br />
+                                                                        }
+                                                                    </div>
+                                                                }
+                                                                var tags = session.Tags;
+                                                                foreach (var tag in tags.Where(t => t.Featured))
+                                                                {
+                                                                    <span class="label label-default" data-toggle="tooltip" data-placement="right" title="@tag.Description">@tag.Name</span>
+                                                                }
+                                                            }
+                                                            else
+                                                            {
+                                                                <div class="schemacell-rad2">
+                                                                    (no session)
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </td>
+                                                }
+                                                else
+                                                {
+                                                    <td data-th="@room.Name">
+                                                        <div class="schemacell">
+                                                            <div class="schemacell-rad2">
+                                                                Not yet available
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                }
+                                            }
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        if (slot.HasSessions)
                                         {
                                             <tr>
-                                                <th style="display: table-cell; text-align: center; width: 60px;">
+                                                <th rowspan=3 class="all-rooms" style="display: table-cell; text-align: center; text-anchor:start; width: 60px;">
                                                     @slot.Start.ToString("HH:mm")<br />|<br />@slot.End.ToString("HH:mm")
                                                 </th>
 
+                                                <td class="all-rooms" colspan="@conference.Rooms.Count()">
+                                                    <div>@slot.Title</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
                                                 @foreach (var room in conference.Rooms)
                                                 {
                                                     var roomSlot = slot.RoomSlots.SingleOrDefault(rs => rs.RoomId == room.Id && (rs.AssignedSession == null || rs.AssignedSession.Published));
@@ -498,6 +596,10 @@ else
                                                                     var sessionSpeakers = session.Speakers.ToList();
                                                                     if (sessionSpeakers.Count > 0)
                                                                     {
+                                                                        if (@roomSlot.Start.HasValue)
+                                                                        {
+                                                                            <span class="schemacell-tid">@roomSlot.Start.Value.ToString("HH:mm") - @roomSlot.End.Value.ToString("HH:mm")</span>
+                                                                        }
                                                                         var firstSpeaker = sessionSpeakers.First();
                                                                         <a href="@Url.Action("Speaker", new {speakerSlug = firstSpeaker.Slug})#@session.Slug">
                                                                             <div class="schemacell-rad1v2">
@@ -517,131 +619,56 @@ else
                                                                         <span class="label label-default" data-toggle="tooltip" data-placement="right" title="@tag.Description">@tag.Name</span>
                                                                     }
                                                                 }
-                                                                else
-                                                                {
-                                                                    <div class="schemacell-rad2">
-                                                                        (no session)
-                                                                    </div>
-                                                                }
                                                             </div>
                                                         </td>
                                                     }
                                                     else
                                                     {
-                                                        <td data-th="@room.Name">
-                                                            <div class="schemacell">
-                                                                <div class="schemacell-rad2">
-                                                                    Not yet available
-                                                                </div>
-                                                            </div>
-                                                        </td>
+                                                        <td></td>
                                                     }
                                                 }
+                                            </tr>
+                                            <tr>
+                                                <td class="all-rooms" colspan="@conference.Rooms.Count()">
+                                                    <div>@slot.Title</div>
+                                                </td>
                                             </tr>
                                         }
                                         else
                                         {
-                                            if (slot.HasSessions)
-                                            {
-                                                <tr>
-                                                    <th rowspan=3 class="all-rooms" style="display: table-cell; text-align: center; text-anchor:start; width: 60px;">
-                                                        @slot.Start.ToString("HH:mm")<br />|<br />@slot.End.ToString("HH:mm")
-                                                    </th>
+                                            <tr>
+                                                <th class="all-rooms" style="display: table-cell; text-align: center; width: 60px;">
+                                                    @slot.Start.ToString("HH:mm")<br />|<br />@slot.End.ToString("HH:mm")
+                                                </th>
 
-                                                    <td class="all-rooms" colspan="@conference.Rooms.Count()">
-                                                        <div>@slot.Title</div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    @foreach (var room in conference.Rooms)
-                                                    {
-                                                        var roomSlot = slot.RoomSlots.SingleOrDefault(rs => rs.RoomId == room.Id && (rs.AssignedSession == null || rs.AssignedSession.Published));
-                                                        bool isChanged = roomSlot != null && roomSlot.IsChanged;
-                                                        string changedClass = isChanged ? "changed" : "unchanged";
-                                                        var session = roomSlot != null ? roomSlot.AssignedSession : null;
-                                                        if (roomSlot != null)
-                                                        {
-                                                            <td data-th="@room.Name" class="@changedClass">
-                                                                <div class="schemacell">
-                                                                    @if (isChanged)
-                                                                    {
-                                                                        <span class="pull-right glyphicon glyphicon-info-sign"></span>
-                                                                    }
-                                                                    @if (session != null)
-                                                                    {
-                                                                        var sessionSpeakers = session.Speakers.ToList();
-                                                                        if (sessionSpeakers.Count > 0)
-                                                                        {
-                                                                            if (@roomSlot.Start.HasValue)
-                                                                            {
-                                                                                <span class="schemacell-tid">@roomSlot.Start.Value.ToString("HH:mm") - @roomSlot.End.Value.ToString("HH:mm")</span>
-                                                                            }
-                                                                            var firstSpeaker = sessionSpeakers.First();
-                                                                            <a href="@Url.Action("Speaker", new {speakerSlug = firstSpeaker.Slug})#@session.Slug">
-                                                                                <div class="schemacell-rad1v2">
-                                                                                    @session.Name
-                                                                                </div>
-                                                                            </a>
-                                                                            <div class="schemacell-rad2v2">
-                                                                                @foreach (var speaker in sessionSpeakers)
-                                                                                {
-                                                                                    @Html.ActionLink(speaker.Name, "Speaker", new { speakerSlug = speaker.Slug })<br />
-                                                                                }
-                                                                            </div>
-                                                                        }
-                                                                        var tags = session.Tags;
-                                                                        foreach (var tag in tags.Where(t => t.Featured))
-                                                                        {
-                                                                            <span class="label label-default" data-toggle="tooltip" data-placement="right" title="@tag.Description">@tag.Name</span>
-                                                                        }
-                                                                    }
-                                                                </div>
-                                                            </td>
-                                                        }
-                                                        else
-                                                        {
-                                                            <td></td>
-                                                        }
-                                                    }
-                                                </tr>
-                                                <tr>
-                                                    <td class="all-rooms" colspan="@conference.Rooms.Count()">
-                                                        <div>@slot.Title</div>
-                                                    </td>
-                                                </tr>
-                                            }
-                                            else
-                                            {
-                                                <tr>
-                                                    <th class="all-rooms" style="display: table-cell; text-align: center; width: 60px;">
-                                                        @slot.Start.ToString("HH:mm")<br />|<br />@slot.End.ToString("HH:mm")
-                                                    </th>
-
-                                                    <td class="all-rooms" colspan="@conference.Rooms.Count()">
-                                                        <div>@slot.Title</div>
-                                                    </td>
-                                                </tr>
-                                            }
+                                                <td class="all-rooms" colspan="@conference.Rooms.Count()">
+                                                    <div>@slot.Title</div>
+                                                </td>
+                                            </tr>
                                         }
-
                                     }
-                                </tbody>
-                            </table>
-                        }
 
-                        <p class="schema-disclaimer">
-                            The schedule may be subject to change.
-                            <!--<span class="glyphicon glyphicon-info-sign"></span>
-                            F�r�ndrat sedan schemat trycktes-->
+                                }
+                            </tbody>
+                        </table>
+                    }
 
-                        </p>
-                    </div>
+                    <p class="schema-disclaimer">
+                        The schedule may be subject to change.
+                        <!--<span class="glyphicon glyphicon-info-sign"></span>
+                        F�r�ndrat sedan schemat trycktes-->
+
+                    </p>
                 </div>
             </div>
         </div>
-    </section> *@
+    </div>
+</section>
+}
 
-<section id="tickets" class="odd-section content-section">
+@if(activeSections.ContainsKey("tickets"))
+{
+<section id="tickets" class="@(activeSections["tickets"].even ? "even" : "odd")-section content-section">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
@@ -709,8 +736,11 @@ else
         </div>
     </div>
 </section>
+}
 
-<section id="contact" class="even-section content-section contact-section">
+@if(activeSections.ContainsKey("contact"))
+{
+<section id="contact" class="@(activeSections["contact"].even ? "even" : "odd")-section content-section contact-section">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -739,8 +769,11 @@ else
         </div>
     </div>
 </section>
+}
 
-<section id="members" class="content-section odd-section members-section">
+@if(activeSections.ContainsKey("members"))
+{
+<section id="members" class="content-section @(activeSections["members"].even ? "even" : "odd")-section members-section">
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
@@ -862,6 +895,7 @@ else
         </div>
     </div>
 </section>
+}
 
 @*<div id="map"></div>*@
 
