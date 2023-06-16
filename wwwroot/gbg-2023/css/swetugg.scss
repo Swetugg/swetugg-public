@@ -644,6 +644,8 @@ footer, .footer-section {
 // Buttons
 
 .btn {
+    max-width: 100%;
+    white-space: normal;
     text-transform: uppercase;
     font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 400;
