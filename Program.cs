@@ -30,6 +30,11 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.MapGet("/", async context =>
+{
+  context.Response.Redirect("/gbg-2023");
+});
+
 app.MapRazorPages();
 
 app.Run();
