@@ -21,6 +21,7 @@ name: Build and deploy ASP.Net Core app to an Azure Web App
 
 env:
   AZURE_WEBAPP_NAME: app-swetugg-prod-web    # set this to the name of your Azure Web App
+  AZURE_QA_WEBAPP_NAME: app-swetugg-prod-web/qa   
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '7.0.100'                 # set this to the .NET Core version to use
 
@@ -79,10 +80,10 @@ jobs:
         with:
           name: .net-app
 
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
+      - name: Deploy to Azure Web App - QA
+        id: deploy-to-qa
         uses: azure/webapps-deploy@v2
         with:
-          app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          app-name: ${{ env.AZURE_QA_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_QA_WEBAPP_PUBLISH_PROFILE }}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
