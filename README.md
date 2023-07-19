@@ -3,7 +3,7 @@ Bear with me, it's all very hacky right now!
 
 ### Setup a database connection
 1. Find a suitable connectionstring by looking at one of the WebApps in Azure, you're looking for the connectionstring called "DefaultConnection" on the Configuration page of the web app.
-1. Copy the value and run `dotnet user-secrets set "ConnectionStrings:Swetugg" "{The value of the connectionstring you copied from Azure}"`.
+1. Copy the value and run `dotnet user-secrets set "ConnectionStrings:Swetugg" "Server=tcp:swetuggv2.database.windows.net,1433;Initial Catalog=swetugg;Persist Security Info=False;User ID=swetugg_admin;Password=oiHxEozpjo3dm9JbCNtI;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"`.
 1. Go to the SQL server "swetuggv2" in Azure and add your IP address to the Firewall rules of the Networking tab.
 
 ### Run the application (VS Code)
