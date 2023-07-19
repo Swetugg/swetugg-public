@@ -31,7 +31,7 @@
     {
         // No forced info. Let's see if we have an open date/time
         DateTime ticketsOpenDateTime;
-        if (DateTime.TryParse(configuration["Ticket_Sales_Open_Date"], 
+        if (DateTime.TryParse(configuration["Ticket_Sales_Open_Date"],
             CultureInfo.InvariantCulture,
             DateTimeStyles.None, out ticketsOpenDateTime))
         {
@@ -80,223 +80,223 @@
     </div>
 </section>
 
-@if(activeSections.ContainsKey("previousLinks"))
+@if (activeSections.ContainsKey("previousLinks"))
 {
-<section id="previousLinks" class="@(activeSections["previousLinks"].even ? "even" : "odd")-section content-section text-center">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <h1 class="noSubtitle">This is Swetugg</h1>
+    <section id="previousLinks" class="@(activeSections["previousLinks"].even ? "even" : "odd")-section content-section text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="noSubtitle">This is Swetugg</h1>
+                </div>
             </div>
-        </div>
-        <div class="row text-center">
-            <div class="col-lg-10 col-lg-offset-1">
-                <p>
-                    Swetugg started from a vision of a .NET conference having great content while still being affordable.
-                </p>
-                <p>
-                    We aim to cover things that are relevant to you as a developer in the .NET realm, no matter if you are just starting your journey or have been writing code since the beginning of unix time.
-                    We strive for a diverse program, which means we work hard on presenting a broad spectrum of speakers and topics for you to choose from. This means the program usually covers topics ranging wide: from human skills to very technical skills.
-                </p>
-                <p>
-                    Swetugg is run by a group of volunteers with different IT backgrounds with a common denominator: A passion for creating good software and better software developers.
-                </p>
+            <div class="row text-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <p>
+                        Swetugg started from a vision of a .NET conference having great content while still being affordable.
+                    </p>
+                    <p>
+                        We aim to cover things that are relevant to you as a developer in the .NET realm, no matter if you are just starting your journey or have been writing code since the beginning of unix time.
+                        We strive for a diverse program, which means we work hard on presenting a broad spectrum of speakers and topics for you to choose from. This means the program usually covers topics ranging wide: from human skills to very technical skills.
+                    </p>
+                    <p>
+                        Swetugg is run by a group of volunteers with different IT backgrounds with a common denominator: A passion for creating good software and better software developers.
+                    </p>
+                </div>
             </div>
-        </div>
 
-        <div class="row text-center space-at-bottom">
-            @* too old?
-                <div class="col-lg-6">
-                    <div class="video-wrapper">
-                        <div class="video-container">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/9L2GG7k4j0M" frameborder="0" allowfullscreen></iframe>
+            <div class="row text-center space-at-bottom">
+                @* too old?
+                    <div class="col-lg-6">
+                        <div class="video-wrapper">
+                            <div class="video-container">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/9L2GG7k4j0M" frameborder="0" allowfullscreen></iframe>
+                            </div>
                         </div>
-                    </div>
-                </div> *@
-            @* playlist isn't clear enough that it is that...
-                <div class="col-lg-12">
-                    <div class="video-wrapper">
-                        <div class="video-container">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL5c9GayKwcrzMSDVQRg_jVwkPhF-X-QO0" title="Sessions from Swetugg Stockholm 2020" frameborder="0" allowfullscreen></iframe>
+                    </div> *@
+                @* playlist isn't clear enough that it is that...
+                    <div class="col-lg-12">
+                        <div class="video-wrapper">
+                            <div class="video-container">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL5c9GayKwcrzMSDVQRg_jVwkPhF-X-QO0" title="Sessions from Swetugg Stockholm 2020" frameborder="0" allowfullscreen></iframe>
+                            </div>
                         </div>
-                    </div>
-                </div> *@
-            @* new images to 2020 needed here
-                <div class="col-lg-6">
-                    <a href="https://www.flickr.com/photos/swetugg/albums/with/72157669362129259" target="_blank"><img src="~/Content/gbg-2023/img/swetugg_flickr2018.jpg" alt="Swetugg Flickr" class="img-responsive flickr-link" /></a>
-                </div> *@
-        </div>
-        <div class="row text-center">
-            <div class="col-lg-8 col-lg-offset-2">
-                <p>
-                    Looking for information or sessions from previous years? All material is archived here:
-                </p>
-                <ul class="list-inline banner-buttons">
-                    <li>
-                        <a href="/swetugg-2015" class="btn btn-default btn-lg">2015</a>
-                    </li>
-                    <li>
-                        <a href="/swetugg-2016" class="btn btn-default btn-lg">2016</a>
-                    </li>
-                    <li>
-                        <a href="/swetugg-2017" class="btn btn-default btn-lg">2017</a>
-                    </li>
-                    <li>
-                        <a href="/swetugg-2018" class="btn btn-default btn-lg">2018</a>
-                    </li>
-                    <li>
-                        <a href="/swetugg-2019" class="btn btn-default btn-lg">2019</a>
-                    </li>
-                    <li>
-                        <a href="/sthlm-2020" class="btn btn-default btn-lg">Stockholm 2020</a>
-                    </li>
-                    <li>
-                        <a href="/gbg-2022" class="btn btn-default btn-lg">Göteborg 2022</a>
-                    </li>
-                    <li>
-                        <a href="/sthlm-2023" class="btn btn-default btn-lg">Stockholm 2023</a>
-                    </li>
-                </ul>
+                    </div> *@
+                @* new images to 2020 needed here
+                    <div class="col-lg-6">
+                        <a href="https://www.flickr.com/photos/swetugg/albums/with/72157669362129259" target="_blank"><img src="~/Content/gbg-2023/img/swetugg_flickr2018.jpg" alt="Swetugg Flickr" class="img-responsive flickr-link" /></a>
+                    </div> *@
+            </div>
+            <div class="row text-center">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <p>
+                        Looking for information or sessions from previous years? All material is archived here:
+                    </p>
+                    <ul class="list-inline banner-buttons">
+                        <li>
+                            <a href="/swetugg-2015" class="btn btn-default btn-lg">2015</a>
+                        </li>
+                        <li>
+                            <a href="/swetugg-2016" class="btn btn-default btn-lg">2016</a>
+                        </li>
+                        <li>
+                            <a href="/swetugg-2017" class="btn btn-default btn-lg">2017</a>
+                        </li>
+                        <li>
+                            <a href="/swetugg-2018" class="btn btn-default btn-lg">2018</a>
+                        </li>
+                        <li>
+                            <a href="/swetugg-2019" class="btn btn-default btn-lg">2019</a>
+                        </li>
+                        <li>
+                            <a href="/sthlm-2020" class="btn btn-default btn-lg">Stockholm 2020</a>
+                        </li>
+                        <li>
+                            <a href="/gbg-2022" class="btn btn-default btn-lg">Göteborg 2022</a>
+                        </li>
+                        <li>
+                            <a href="/sthlm-2023" class="btn btn-default btn-lg">Stockholm 2023</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row margin-top">
+                <div class="blockquote-container col-lg-4">
+                    <blockquote class="blockquote blockquote-small">
+                        <p>&ldquo;Well organized and you can feel that there are very dedicated people working hard to make it happen! I like the fact that it is kind of low key with focus on the speakers. No fancy key note and stuff which I appreciate. Very good value for money!&bdquo;</p>
+                        <footer class="blockquote-footer">Attendee Stockholm 2020</footer>
+                    </blockquote>
+                </div>
+                <div class="blockquote-container col-lg-4">
+                    <blockquote class="blockquote blockquote-small">
+                        <p>&ldquo;Fun, thoughtful and hardworking organizers. Wonderful treatment. Very diverse speaker and audience. Well organized activities. Professional. Safe and inclusive enviroment&bdquo;</p>
+                        <footer class="blockquote-footer">Speaker at Stockholm 2020</footer>
+                    </blockquote>
+                </div>
+                <div class="blockquote-container col-lg-4">
+                    <blockquote class="blockquote blockquote-small">
+                        <p>&ldquo;Good conference with lots of good and inspiring sessions. Great place too meet and mingle with people in the industry. &bdquo;</p>
+                        <footer class="blockquote-footer">Sponsor of Swetugg Stockholm 2020</footer>
+                    </blockquote>
+                </div>
             </div>
         </div>
-        <div class="row margin-top">
-            <div class="blockquote-container col-lg-4">
-                <blockquote class="blockquote blockquote-small">
-                    <p>&ldquo;Well organized and you can feel that there are very dedicated people working hard to make it happen! I like the fact that it is kind of low key with focus on the speakers. No fancy key note and stuff which I appreciate. Very good value for money!&bdquo;</p>
-                    <footer class="blockquote-footer">Attendee Stockholm 2020</footer>
-                </blockquote>
-            </div>
-            <div class="blockquote-container col-lg-4">
-                <blockquote class="blockquote blockquote-small">
-                    <p>&ldquo;Fun, thoughtful and hardworking organizers. Wonderful treatment. Very diverse speaker and audience. Well organized activities. Professional. Safe and inclusive enviroment&bdquo;</p>
-                    <footer class="blockquote-footer">Speaker at Stockholm 2020</footer>
-                </blockquote>
-            </div>
-            <div class="blockquote-container col-lg-4">
-                <blockquote class="blockquote blockquote-small">
-                    <p>&ldquo;Good conference with lots of good and inspiring sessions. Great place too meet and mingle with people in the industry. &bdquo;</p>
-                    <footer class="blockquote-footer">Sponsor of Swetugg Stockholm 2020</footer>
-                </blockquote>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 }
 
-@if(activeSections.ContainsKey("sponsor"))
+@if (activeSections.ContainsKey("sponsor"))
 {
-<section id="sponsor" class="@(activeSections["sponsor"].even ? "even" : "odd")-section content-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <h1>Sponsors</h1>
+    <section id="sponsor" class="@(activeSections["sponsor"].even ? "even" : "odd")-section content-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>Sponsors</h1>
+                </div>
             </div>
+            <div class="row text-center">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <p>
+                        Your organization can get in touch with hundreds of great software developers by becoming an exhibitor or a digital sponsor. It's an amazing opportunity!
+                    </p>
+                    <p>
+                        <a href="gbg-2023/sponsorship" class="btn btn-default btn-lg">See our sponsorship packages</a>
+                    </p>
+                </div>
+            </div>
+            @{
+                var exhibitors = conference.Sponsors.Where(s => s.Priority < 100).ToArray();
+                var supportSponsors = conference.Sponsors.Where(s => s.Priority >= 100 && s.Priority < 200).ToArray();
+                var podcasts = conference.Sponsors.Where(s => s.Priority >= 200).ToArray();
+            }
+            @if (exhibitors.Any())
+            {
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2 class="subTitle">Exhibitors</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-1">
+                        <ul class="logo-collection">
+
+                            @foreach (var sponsor in exhibitors)
+                            {
+                                var imgUrl = sponsor.SponsorImages.FirstOrDefault(i => i.ImageType.Slug == "sponsor-thumb")?.ImageUrl;
+                                if (imgUrl == null)
+                                {
+                                    imgUrl = "/Content/gbg-2023/img/sponsors/" + sponsor.Slug + "-thumb.png";
+                                }
+
+                                <li>
+                                    <a href="@sponsor.Web">
+                                        <img class="sponsor-image" src="@imgUrl" />
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+
+            @if (supportSponsors.Any())
+            {
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2 class="subTitle">Supporters</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-1">
+                        <ul class="logo-collection">
+
+                            @foreach (var sponsor in supportSponsors)
+                            {
+                                var imgUrl = sponsor.SponsorImages.FirstOrDefault(i => i.ImageType.Slug == "sponsor-thumb")?.ImageUrl;
+                                if (imgUrl == null)
+                                {
+                                    imgUrl = "/Content/gbg-2023/img/sponsors/" + sponsor.Slug + "-thumb.png";
+                                }
+
+                                <li>
+                                    <a href="@sponsor.Web">
+                                        <img class="sponsor-image" src="@imgUrl" />
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+            @if (podcasts.Any())
+            {
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2 class="subTitle">Podcasts</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-1">
+                        <ul class="logo-collection">
+
+                            @foreach (var sponsor in podcasts)
+                            {
+                                var imgUrl = sponsor.SponsorImages.FirstOrDefault(i => i.ImageType.Slug == "sponsor-thumb")?.ImageUrl;
+                                if (imgUrl == null)
+                                {
+                                    imgUrl = "/Content/gbg-2023/img/sponsors/" + sponsor.Slug + "-thumb.png";
+                                }
+
+                                <li>
+                                    <a href="@sponsor.Web">
+                                        <img class="sponsor-image" src="@imgUrl" />
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
         </div>
-        <div class="row text-center">
-            <div class="col-lg-8 col-lg-offset-2">
-                <p>
-                    Your organization can get in touch with hundreds of great software developers by becoming an exhibitor or a digital sponsor. It's an amazing opportunity!
-                </p>
-                <p>
-                    <a href="gbg-2023/sponsorship" class="btn btn-default btn-lg">See our sponsorship packages</a>
-                </p>
-            </div>
-        </div>
-        @{
-            var exhibitors = conference.Sponsors.Where(s => s.Priority < 100).ToArray();
-            var supportSponsors = conference.Sponsors.Where(s => s.Priority >= 100 && s.Priority < 200).ToArray();
-            var podcasts = conference.Sponsors.Where(s => s.Priority >= 200).ToArray();
-        }
-        @if (exhibitors.Any())
-        {
-            <div class="row">
-                <div class="col-xs-12">
-                    <h2 class="subTitle">Exhibitors</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <ul class="logo-collection">
-
-                        @foreach (var sponsor in exhibitors)
-                        {
-                            var imgUrl = sponsor.SponsorImages.FirstOrDefault(i => i.ImageType.Slug == "sponsor-thumb")?.ImageUrl;
-                            if (imgUrl == null)
-                            {
-                                imgUrl = "/Content/gbg-2023/img/sponsors/" + sponsor.Slug + "-thumb.png";
-                            }
-
-                            <li>
-                                <a href="@sponsor.Web">
-                                    <img class="sponsor-image" src="@imgUrl" />
-                                </a>
-                            </li>
-                        }
-                    </ul>
-                </div>
-            </div>
-        }
-
-        @if (supportSponsors.Any())
-        {
-            <div class="row">
-                <div class="col-xs-12">
-                    <h2 class="subTitle">Supporters</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <ul class="logo-collection">
-
-                        @foreach (var sponsor in supportSponsors)
-                        {
-                            var imgUrl = sponsor.SponsorImages.FirstOrDefault(i => i.ImageType.Slug == "sponsor-thumb")?.ImageUrl;
-                            if (imgUrl == null)
-                            {
-                                imgUrl = "/Content/gbg-2023/img/sponsors/" + sponsor.Slug + "-thumb.png";
-                            }
-
-                            <li>
-                                <a href="@sponsor.Web">
-                                    <img class="sponsor-image" src="@imgUrl" />
-                                </a>
-                            </li>
-                        }
-                    </ul>
-                </div>
-            </div>
-        }
-        @if (podcasts.Any())
-        {
-            <div class="row">
-                <div class="col-xs-12">
-                    <h2 class="subTitle">Podcasts</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <ul class="logo-collection">
-
-                        @foreach (var sponsor in podcasts)
-                        {
-                            var imgUrl = sponsor.SponsorImages.FirstOrDefault(i => i.ImageType.Slug == "sponsor-thumb")?.ImageUrl;
-                            if (imgUrl == null)
-                            {
-                                imgUrl = "/Content/gbg-2023/img/sponsors/" + sponsor.Slug + "-thumb.png";
-                            }
-
-                            <li>
-                                <a href="@sponsor.Web">
-                                    <img class="sponsor-image" src="@imgUrl" />
-                                </a>
-                            </li>
-                        }
-                    </ul>
-                </div>
-            </div>
-        }
-    </div>
-</section>
+    </section>
 }
 
 @if (conference.Speakers.Any() && activeSections.ContainsKey("speakers"))
@@ -352,7 +352,7 @@
         </div>
     </section>
 }
-@if(!conference.Speakers.Any() && activeSections.ContainsKey("speakers"))
+@if (!conference.Speakers.Any() && activeSections.ContainsKey("speakers"))
 {
     <section id="speakers" class="@(activeSections["speakers"].even ? "even" : "odd")-section content-section">
         <div class="container">
@@ -416,164 +416,90 @@
 }
 
 @* @if(activeSections.ContainsKey("sessions"))
+    {
+    <section id="sessions" class="@(activeSections["sessions"].even ? "even" : "odd")-section content-section">
+        <div class="program-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h1 class="noSubtitle">Sessions</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-10 col-lg-offset-1">
+                            <ul class="sessions">
+                                @foreach (var session in sessions.Where(s => s.Published))
+                                {
+                                    var sessionSpeakers = session.Speakers.Select(s => s.Speaker);
+                                    <li>
+                                        <a href="@Url.Action("Speaker", new {speakerSlug = sessionSpeakers.First().Slug})#@session.Slug">@session.Name</a>
+                                        <ul class="sessions-speakers">
+                                            @foreach (var speaker in sessionSpeakers)
+                                            {
+                                                string imageUrl = "/Content/gbg-2023/SpeakerPictures/" + speaker.Slug + ".png";
+                                                IDictionary<string, SpeakerImage> imgLookup;
+                                                if (speakerImages.TryGetValue(speaker.Id, out imgLookup))
+                                                {
+                                                    SpeakerImage speakerImage;
+                                                    if (imgLookup.TryGetValue("thumb", out speakerImage))
+                                                    {
+                                                        imageUrl = speakerImage.ImageUrl;
+                                                    }
+                                                }
+                                                <li><img class="img-circle" src="@imageUrl" />@Html.ActionLink(speaker.Name, "Speaker", new { speakerSlug = speaker.Slug })</li>
+                                            }
+                                        </ul>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </section>
+    } *@
+
+@if (activeSections.ContainsKey("schedule"))
 {
-<section id="sessions" class="@(activeSections["sessions"].even ? "even" : "odd")-section content-section">
-    <div class="program-section">
+    <section id="schedule" class="@(activeSections["schedule"].even ? "even" : "odd")-section content-section">
+        <div class="schedule-section">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <h1 class="noSubtitle">Sessions</h1>
+                        <h1 class="noSubtitle">Schedule</h1>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-10 col-lg-offset-1">
-                        <ul class="sessions">
-                            @foreach (var session in sessions.Where(s => s.Published))
-                            {
-                                var sessionSpeakers = session.Speakers.Select(s => s.Speaker);
-                                <li>
-                                    <a href="@Url.Action("Speaker", new {speakerSlug = sessionSpeakers.First().Slug})#@session.Slug">@session.Name</a>
-                                    <ul class="sessions-speakers">
-                                        @foreach (var speaker in sessionSpeakers)
+                    <div class="col-lg-12">
+
+                        @foreach (var day in conference.Slots.GroupBy(s => s.Start.Date))
+                        {
+                            var width = 90 / conference.Rooms.Count();
+
+                            <h2>@day.Key.ToString("dddd, yyyy-MM-dd")</h2>
+                            <table class="table schema rwd-table">
+                                <thead>
+                                    <tr>
+
+                                        <th style="width: 10%">Time</th>
+
+                                        @foreach (var room in conference.Rooms)
                                         {
-                                            string imageUrl = "/Content/gbg-2023/SpeakerPictures/" + speaker.Slug + ".png";
-                                            IDictionary<string, SpeakerImage> imgLookup;
-                                            if (speakerImages.TryGetValue(speaker.Id, out imgLookup))
-                                            {
-                                                SpeakerImage speakerImage;
-                                                if (imgLookup.TryGetValue("thumb", out speakerImage))
-                                                {
-                                                    imageUrl = speakerImage.ImageUrl;
-                                                }
-                                            }
-                                            <li><img class="img-circle" src="@imageUrl" />@Html.ActionLink(speaker.Name, "Speaker", new { speakerSlug = speaker.Slug })</li>
+                                            <th style="width: @width%">@room.Name</th>
                                         }
-                                    </ul>
-                                </li>
-                            }
-                        </ul>
-                    </div>
-                </div>
-            </div>
-    </div>
-</section>
-} *@
-
-@if(activeSections.ContainsKey("schedule"))
-{
-<section id="schedule" class="@(activeSections["schedule"].even ? "even" : "odd")-section content-section">
-    <div class="schedule-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <h1 class="noSubtitle">Schedule</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-
-                    @foreach (var day in conference.Slots.GroupBy(s => s.Start.Date))
-                    {
-                        var width = 90 / conference.Rooms.Count();
-
-                        <h2>@day.Key.ToString("dddd, yyyy-MM-dd")</h2>
-                        <table class="table schema rwd-table">
-                            <thead>
-                                <tr>
-
-                                    <th style="width: 10%">Time</th>
-
-                                    @foreach (var room in conference.Rooms)
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var slot in day)
                                     {
-                                        <th style="width: @width%">@room.Name</th>
-                                    }
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var slot in day)
-                                {
 
-                                    if (string.IsNullOrEmpty(slot.Title))
-                                    {
-                                        <tr>
-                                            <th style="display: table-cell; text-align: center; width: 60px;">
-                                                @slot.Start.ToString("HH:mm")<br />|<br />@slot.End.ToString("HH:mm")
-                                            </th>
-
-                                            @foreach (var room in conference.Rooms)
-                                            {
-                                                var roomSlot = slot.RoomSlots.SingleOrDefault(rs => rs.RoomId == room.Id && (rs.AssignedSession == null || rs.AssignedSession.Published));
-                                                bool isChanged = roomSlot != null && roomSlot.IsChanged;
-                                                string changedClass = isChanged ? "changed" : "unchanged";
-                                                var session = roomSlot != null ? roomSlot.AssignedSession : null;
-                                                if (roomSlot != null)
-                                                {
-                                                    <td data-th="@room.Name" class="@changedClass">
-                                                        <div class="schemacell">
-                                                            @if (isChanged)
-                                                            {
-                                                                <span class="pull-right glyphicon glyphicon-info-sign"></span>
-                                                            }
-                                                            @if (session != null)
-                                                            {
-                                                                var sessionSpeakers = session.Speakers.ToList();
-                                                                if (sessionSpeakers.Count > 0)
-                                                                {
-                                                                    var firstSpeaker = sessionSpeakers.First();
-                                                                    <a href="@Url.Action("Speaker", new {speakerSlug = firstSpeaker.Slug})#@session.Slug">
-                                                                        <div class="schemacell-rad1v2">
-                                                                            @session.Name
-                                                                        </div>
-                                                                    </a>
-                                                                    <div class="schemacell-rad2v2">
-                                                                        @foreach (var speaker in sessionSpeakers)
-                                                                        {
-                                                                            @Html.ActionLink(speaker.Name, "Speaker", new { speakerSlug = speaker.Slug })<br />
-                                                                        }
-                                                                    </div>
-                                                                }
-                                                                var tags = session.Tags;
-                                                                foreach (var tag in tags.Where(t => t.Featured))
-                                                                {
-                                                                    <span class="label label-default" data-toggle="tooltip" data-placement="right" title="@tag.Description">@tag.Name</span>
-                                                                }
-                                                            }
-                                                            else
-                                                            {
-                                                                <div class="schemacell-rad2">
-                                                                    (no session)
-                                                                </div>
-                                                            }
-                                                        </div>
-                                                    </td>
-                                                }
-                                                else
-                                                {
-                                                    <td data-th="@room.Name">
-                                                        <div class="schemacell">
-                                                            <div class="schemacell-rad2">
-                                                                Not yet available
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                }
-                                            }
-                                        </tr>
-                                    }
-                                    else
-                                    {
-                                        if (slot.HasSessions)
+                                        if (string.IsNullOrEmpty(slot.Title))
                                         {
                                             <tr>
-                                                <th rowspan=3 class="all-rooms" style="display: table-cell; text-align: center; text-anchor:start; width: 60px;">
+                                                <th style="display: table-cell; text-align: center; width: 60px;">
                                                     @slot.Start.ToString("HH:mm")<br />|<br />@slot.End.ToString("HH:mm")
                                                 </th>
 
-                                                <td class="all-rooms" colspan="@conference.Rooms.Count()">
-                                                    <div>@slot.Title</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
                                                 @foreach (var room in conference.Rooms)
                                                 {
                                                     var roomSlot = slot.RoomSlots.SingleOrDefault(rs => rs.RoomId == room.Id && (rs.AssignedSession == null || rs.AssignedSession.Published));
@@ -593,10 +519,6 @@
                                                                     var sessionSpeakers = session.Speakers.ToList();
                                                                     if (sessionSpeakers.Count > 0)
                                                                     {
-                                                                        if (@roomSlot.Start.HasValue)
-                                                                        {
-                                                                            <span class="schemacell-tid">@roomSlot.Start.Value.ToString("HH:mm") - @roomSlot.End.Value.ToString("HH:mm")</span>
-                                                                        }
                                                                         var firstSpeaker = sessionSpeakers.First();
                                                                         <a href="@Url.Action("Speaker", new {speakerSlug = firstSpeaker.Slug})#@session.Slug">
                                                                             <div class="schemacell-rad1v2">
@@ -616,308 +538,485 @@
                                                                         <span class="label label-default" data-toggle="tooltip" data-placement="right" title="@tag.Description">@tag.Name</span>
                                                                     }
                                                                 }
+                                                                else
+                                                                {
+                                                                    <div class="schemacell-rad2">
+                                                                        (no session)
+                                                                    </div>
+                                                                }
                                                             </div>
                                                         </td>
                                                     }
                                                     else
                                                     {
-                                                        <td></td>
+                                                        <td data-th="@room.Name">
+                                                            <div class="schemacell">
+                                                                <div class="schemacell-rad2">
+                                                                    Not yet available
+                                                                </div>
+                                                            </div>
+                                                        </td>
                                                     }
                                                 }
-                                            </tr>
-                                            <tr>
-                                                <td class="all-rooms" colspan="@conference.Rooms.Count()">
-                                                    <div>@slot.Title</div>
-                                                </td>
                                             </tr>
                                         }
                                         else
                                         {
-                                            <tr>
-                                                <th class="all-rooms" style="display: table-cell; text-align: center; width: 60px;">
-                                                    @slot.Start.ToString("HH:mm")<br />|<br />@slot.End.ToString("HH:mm")
-                                                </th>
+                                            if (slot.HasSessions)
+                                            {
+                                                <tr>
+                                                    <th rowspan=3 class="all-rooms" style="display: table-cell; text-align: center; text-anchor:start; width: 60px;">
+                                                        @slot.Start.ToString("HH:mm")<br />|<br />@slot.End.ToString("HH:mm")
+                                                    </th>
 
-                                                <td class="all-rooms" colspan="@conference.Rooms.Count()">
-                                                    <div>@slot.Title</div>
-                                                </td>
-                                            </tr>
+                                                    <td class="all-rooms" colspan="@conference.Rooms.Count()">
+                                                        <div>@slot.Title</div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    @foreach (var room in conference.Rooms)
+                                                    {
+                                                        var roomSlot = slot.RoomSlots.SingleOrDefault(rs => rs.RoomId == room.Id && (rs.AssignedSession == null || rs.AssignedSession.Published));
+                                                        bool isChanged = roomSlot != null && roomSlot.IsChanged;
+                                                        string changedClass = isChanged ? "changed" : "unchanged";
+                                                        var session = roomSlot != null ? roomSlot.AssignedSession : null;
+                                                        if (roomSlot != null)
+                                                        {
+                                                            <td data-th="@room.Name" class="@changedClass">
+                                                                <div class="schemacell">
+                                                                    @if (isChanged)
+                                                                    {
+                                                                        <span class="pull-right glyphicon glyphicon-info-sign"></span>
+                                                                    }
+                                                                    @if (session != null)
+                                                                    {
+                                                                        var sessionSpeakers = session.Speakers.ToList();
+                                                                        if (sessionSpeakers.Count > 0)
+                                                                        {
+                                                                            if (@roomSlot.Start.HasValue)
+                                                                            {
+                                                                                <span class="schemacell-tid">@roomSlot.Start.Value.ToString("HH:mm") - @roomSlot.End.Value.ToString("HH:mm")</span>
+                                                                            }
+                                                                            var firstSpeaker = sessionSpeakers.First();
+                                                                            <a href="@Url.Action("Speaker", new {speakerSlug = firstSpeaker.Slug})#@session.Slug">
+                                                                                <div class="schemacell-rad1v2">
+                                                                                    @session.Name
+                                                                                </div>
+                                                                            </a>
+                                                                            <div class="schemacell-rad2v2">
+                                                                                @foreach (var speaker in sessionSpeakers)
+                                                                                {
+                                                                                    @Html.ActionLink(speaker.Name, "Speaker", new { speakerSlug = speaker.Slug })<br />
+                                                                                }
+                                                                            </div>
+                                                                        }
+                                                                        var tags = session.Tags;
+                                                                        foreach (var tag in tags.Where(t => t.Featured))
+                                                                        {
+                                                                            <span class="label label-default" data-toggle="tooltip" data-placement="right" title="@tag.Description">@tag.Name</span>
+                                                                        }
+                                                                    }
+                                                                </div>
+                                                            </td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td></td>
+                                                        }
+                                                    }
+                                                </tr>
+                                                <tr>
+                                                    <td class="all-rooms" colspan="@conference.Rooms.Count()">
+                                                        <div>@slot.Title</div>
+                                                    </td>
+                                                </tr>
+                                            }
+                                            else
+                                            {
+                                                <tr>
+                                                    <th class="all-rooms" style="display: table-cell; text-align: center; width: 60px;">
+                                                        @slot.Start.ToString("HH:mm")<br />|<br />@slot.End.ToString("HH:mm")
+                                                    </th>
+
+                                                    <td class="all-rooms" colspan="@conference.Rooms.Count()">
+                                                        <div>@slot.Title</div>
+                                                    </td>
+                                                </tr>
+                                            }
                                         }
+
                                     }
-
-                                }
-                            </tbody>
-                        </table>
-                    }
-
-                    <p class="schema-disclaimer">
-                        The schedule may be subject to change.
-                        <!--<span class="glyphicon glyphicon-info-sign"></span>
-                        F�r�ndrat sedan schemat trycktes-->
-
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-}
-
-@if(activeSections.ContainsKey("tickets"))
-{
-<section id="tickets" class="@(activeSections["tickets"].even ? "even" : "odd")-section content-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <h1 class="noSubtitle">Tickets</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6 col-lg-offset-3">
-                @if (ticketSalesOpen)
-                {
-                    <!-- Ticket Tailor Widget. Paste this in to your website where you want the widget to appear. Do no change the code or the widget may not work properly. -->
-                    <div class="tt-widget">
-                        <div class="tt-widget-fallback"><p><a href="https://www.tickettailor.com/checkout/new-session/id/1748910/chk/44cb/" target="_blank">Click here to buy tickets</a><br /><small><a href="https://www.tickettailor.com?rf=wdg" class="tt-widget-powered">Sell tickets online with Ticket Tailor</a></small></p></div>
-                        <script src="https://cdn.tickettailor.com/js/widgets/min/widget.js" data-url="https://www.tickettailor.com/checkout/new-session/id/1748910/chk/44cb/" data-type="inline" data-inline-minimal="false" data-inline-show-logo="true" data-inline-bg-fill="true"></script>
-                    </div>
-                    <!-- End of Ticket Tailor Widget -->
-                    <p>
-                        <h3>Invoice?</h3>
-                        Do you wish to buy more than five tickets and/or prefer an invoice?
-                        Use the form above and select the option <strong>Pay using invoice (more than 5 tickets)</strong> when completing your order.
-                        For 5 tickets or less we charge an extra fee of 100kr for invoices.
-                    </p>
-                }
-                else
-                {
-                    <p>
-                        You can can start buying tickets on Tuesday 1 of August 10:00! Our ticket price will be 3200SEK.
-                        We will also have a limited number of early bird tickets at 2000SEK.
-                        As well as a discount for our sponsors (see our <a href="gbg-2023/sponsorship">sponsor packages</a>).<br />
-                        Would you like a reminder? Add yourself to our mailing list!
-                    </p>
-                    @*<p>
-                Tickets for Swetugg 2023 have sold out. If we are able to open sales again, we will announce it on <a href="https://twitter.com/swetugg">Twitter</a> and <a href="https://facebook.com/swetugg">Facebook</a>, so make sure to follow us there!
-            </p>*@
-                    @*<p>
-                If you haven't already signed up for our newsletter, do so now and you won't miss the conference next time around!
-            </p>*@
-                    <!-- Begin MailChimp Signup Form -->
-                    <div id="mc_embed_signup">
-                        <form action="//swetugg.us8.list-manage.com/subscribe/post?u=f8f35c45f37445d5d813b270c&amp;id=5260e75d8e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                            <div id="mc_embed_signup_scroll">
-                                <div class="mc-field-group form-group">
-                                    <label for="mce-EMAIL">Email</label>
-                                    <input type="email" value="" name="EMAIL" class="required email form-control" id="mce-EMAIL">
-                                </div>
-                                <div class="mc-field-group form-group">
-                                    <label for="mce-FNAME">First name</label>
-                                    <input type="text" value="" name="FNAME" class="form-control" id="mce-FNAME">
-                                </div>
-                                <div class="mc-field-group form-group">
-                                    <label for="mce-LNAME">Last name</label>
-                                    <input type="text" value="" name="LNAME" class="form-control" id="mce-LNAME">
-                                </div>
-                                <div id="mce-responses" class="clear">
-                                    <div class="response" id="mce-error-response" style="display:none"></div>
-                                    <div class="response" id="mce-success-response" style="display:none"></div>
-                                </div>
-                                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f8f35c45f37445d5d813b270c_5260e75d8e" tabindex="-1" value=""></div>
-                                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button btn btn-default"></div>
-                            </div>
-                        </form>
-                    </div>
-
-                }
-            </div>
-        </div>
-    </div>
-</section>
-}
-
-@if(activeSections.ContainsKey("contact"))
-{
-<section id="contact" class="@(activeSections["contact"].even ? "even" : "odd")-section content-section contact-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <h1 class="noSubtitle">Contact us</h1>
-            </div>
-        </div>
-        <div class="row text-center">
-            <div class="col-lg-8 col-lg-offset-2">
-                <p>
-                    We are happy to answer questions, listen to feedback or suggestions for the future. Maybe you would like to volunteer?
-                    Don't hesitate to contact us at <a href="mailto:info@swetugg.se">info@swetugg.se</a>
-                </p>
-            </div>
-        </div>
-        <div class="row text-center">
-            <div class="col-lg-8 col-lg-offset-2">
-                <ul class="list-inline banner-buttons">
-                    <li>
-                        <a href="https://twitter.com/swetugg" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                    </li>
-                    <li>
-                        <a href="https://facebook.com/swetugg" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-}
-
-@if(activeSections.ContainsKey("members"))
-{
-<section id="members" class="content-section @(activeSections["members"].even ? "even" : "odd")-section members-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <h2>
-                    The Team
-                </h2>
-                <div class="member">
-                    <div class="member-name">Cecilia Wirén</div>
-                    <div class="member-twitter">
-                        <a href="https://twitter.com/CeciliaSHARP">@@CeciliaSHARP</a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="member-name">Fabian Miiro</div>
-                    <div class="member-twitter">
-                        <a href="https://twitter.com/iloabn">@@iloabn</a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="member-name">Andrea Klintelius</div>
-                    <div class="member-twitter">
-                        <a href="https://twitter.com/drea1112">@@drea1112</a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="member-name">Mattias Karlsson</div>
-                    <div class="member-twitter">
-                        <a href="https://twitter.com/devlead">@@devlead</a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="member-name">Jimmy Engström</div>
-                    <div class="member-twitter">
-                        <a href="https://twitter.com/EngstromJimmy">@@EngstromJimmy</a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="member-name">Rickard öh</div>
-                    <div class="member-twitter">
-                        <a href="https://twitter.com/kalasp">@@kalasp</a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="member-name">Sebastian Rosengren</div>
-                    <div class="member-twitter">
-                        <a href="https://twitter.com/srrosengren">@@srrosengren</a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="member-name">Magnus Timner</div>
-                    <div class="member-twitter">
-                        <a href="https://twitter.com/MTimner">@@MTimner</a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="member-name">Mattias Lögdberg</div>
-                    <div class="member-twitter">
-                        <a href="https://twitter.com/mlogdberg">@@mlogdberg</a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="member-name">Viktor Karlström</div>
-                    <div class="member-twitter">
-                        <a href="https://twitter.com/karlstroems">@@karlstroems</a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="member-name">Johan Normén</div>
-                    <div class="member-twitter">
-                        <a href="https://twitter.com/Johannormen">@@Johannormen</a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="member-name">Jim Elfving</div>
-                    <div class="member-twitter">
-                        <a href="https://twitter.com/jim_elfving">@@jim_elfving</a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="member-name">Mathias Olausson</div>
-                    <div class="member-twitter">
-                        <a href="https://twitter.com/molausson">@@molausson</a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="member-name">Manuel Ericstam</div>
-                    <div class="member-twitter">
-                        <a href="https://twitter.com/EricstamManuel">@@EricstamManuel</a>
-                    </div>
-                </div>
-                <div class="member">
-                    <div class="member-name">Abdirahman Farah</div>
-                </div>
-                <div class="member">
-                    <div class="member-name">Maria Sliufko</div>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-</section>
-}
-
-@*<div id="map"></div>*@
-
-<footer>
-    <section id="mainFooter" class="footer-section">
-        <div class="container" id="footer">
-            <div class="row">
-                <div class="col-sm-4">
-                    <h3>Location</h3>
-                    <p>
-                        @{
-                            var locationUrl = "https://goo.gl/maps/1TAjEwXkM5mc51h5A";
+                                </tbody>
+                            </table>
                         }
-                        <strong style="font-size: 24px;">Lindholmen Conference Centre</strong><br />
-                        Lindholmspiren 5<br />
-                        417 56 Göteborg
-                    </p>
-                </div>
-                <div class="col-sm-8">
-                    <h4>Bus stop</h4>
-                    <p>Lindholmen</p>
-                    <h4>Coordinates</h4>
-                    <p>
-                        <a href="@locationUrl" target="_blank">57.707143, 11.940031</a>
-                    </p>
+
+                        <p class="schema-disclaimer">
+                            The schedule may be subject to change.
+                            <!--<span class="glyphicon glyphicon-info-sign"></span>
+                            F�r�ndrat sedan schemat trycktes-->
+
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-</footer>
-@section scripts {
-    <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
-    @*<script>
-            initializeMap();
-        </script>
-    *@
 }
 
-@section meta {
-    <meta property="og:image" content="https://swetugg.se/content/gbg-2023/img/swetugg-gron-kvadrat.png" />
-    <meta property="og:description" content="Swetugg is back in Stockholm with another interesting, fun, and affordable conference in February 2023" />
+@if (activeSections.ContainsKey("tickets"))
+{
+    <section id="tickets" class="@(activeSections["tickets"].even ? "even" : "odd")-section content-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="noSubtitle">Tickets</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-lg-offset-3">
+                    @if (ticketSalesOpen)
+                    {
+                        <!-- Ticket Tailor Widget. Paste this in to your website where you want the widget to appear. Do no change the code or the widget may not work properly. -->
+                        <div class="tt-widget">
+                            <div class="tt-widget-fallback"><p><a href="https://www.tickettailor.com/checkout/new-session/id/1748910/chk/44cb/" target="_blank">Click here to buy tickets</a><br /><small><a href="https://www.tickettailor.com?rf=wdg" class="tt-widget-powered">Sell tickets online with Ticket Tailor</a></small></p></div>
+                            <script src="https://cdn.tickettailor.com/js/widgets/min/widget.js" data-url="https://www.tickettailor.com/checkout/new-session/id/1748910/chk/44cb/" data-type="inline" data-inline-minimal="false" data-inline-show-logo="true" data-inline-bg-fill="true"></script>
+                        </div>
+                        <!-- End of Ticket Tailor Widget -->
+                        <p>
+                            <h3>Invoice?</h3>
+                            Do you wish to buy more than five tickets and/or prefer an invoice?
+                            Use the form above and select the option <strong>Pay using invoice (more than 5 tickets)</strong> when completing your order.
+                            For 5 tickets or less we charge an extra fee of 100kr for invoices.
+                        </p>
+                    }
+                    else
+                    {
+                        <p>
+                            You can can start buying tickets on Tuesday 1 of August 10:00! Our ticket price will be 3200SEK.
+                            We will also have a limited number of early bird tickets at 2000SEK.
+                            As well as a discount for our sponsors (see our <a href="gbg-2023/sponsorship">sponsor packages</a>).<br />
+                            Would you like a reminder? Add yourself to our mailing list!
+                        </p>
+                        @*<p>
+                                Tickets for Swetugg 2023 have sold out. If we are able to open sales again, we will announce it on <a href="https://twitter.com/swetugg">Twitter</a> and <a href="https://facebook.com/swetugg">Facebook</a>, so make sure to follow us there!
+                            </p>*@
+                        @*<p>
+                                If you haven't already signed up for our newsletter, do so now and you won't miss the conference next time around!
+                            </p>*@
+                        <!-- Begin MailChimp Signup Form -->
+                        <div id="mc_embed_signup">
+                            <form action="//swetugg.us8.list-manage.com/subscribe/post?u=f8f35c45f37445d5d813b270c&amp;id=5260e75d8e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                                <div id="mc_embed_signup_scroll">
+                                    <div class="mc-field-group form-group">
+                                        <label for="mce-EMAIL">Email</label>
+                                        <input type="email" value="" name="EMAIL" class="required email form-control" id="mce-EMAIL">
+                                    </div>
+                                    <div class="mc-field-group form-group">
+                                        <label for="mce-FNAME">First name</label>
+                                        <input type="text" value="" name="FNAME" class="form-control" id="mce-FNAME">
+                                    </div>
+                                    <div class="mc-field-group form-group">
+                                        <label for="mce-LNAME">Last name</label>
+                                        <input type="text" value="" name="LNAME" class="form-control" id="mce-LNAME">
+                                    </div>
+                                    <div id="mce-responses" class="clear">
+                                        <div class="response" id="mce-error-response" style="display:none"></div>
+                                        <div class="response" id="mce-success-response" style="display:none"></div>
+                                    </div>
+                                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f8f35c45f37445d5d813b270c_5260e75d8e" tabindex="-1" value=""></div>
+                                    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button btn btn-default"></div>
+                                </div>
+                            </form>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
 }
+
+@if (activeSections.ContainsKey("contact"))
+{
+    <section id="contact" class="@(activeSections["contact"].even ? "even" : "odd")-section content-section contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="noSubtitle">Contact us</h1>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <p>
+                        We are happy to answer questions, listen to feedback or suggestions for the future. Maybe you would like to volunteer?
+                        Don't hesitate to contact us at <a href="mailto:info@swetugg.se">info@swetugg.se</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <ul class="list-inline banner-buttons">
+                        <li>
+                            <a href="https://twitter.com/swetugg" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                        </li>
+                        <li>
+                            <a href="https://facebook.com/swetugg" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+@if (activeSections.ContainsKey("members"))
+    {
+    <style>
+        .member {
+            text-align: center;
+        }
+
+        .member-name {
+            font-size: 18px;
+            line-height: 16px;
+        }
+
+        .member-social {
+            margin-top: 10px; /* Justera avståndet mellan namnet och ikonerna */
+        }
+
+        .social-link {
+            margin-right: 10px; /* Justera avståndet mellan ikonerna */
+        }
+    </style>
+
+    <section id="members" class="content-section @(activeSections["members"].even ? "even" : "odd")-section members-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <h2>
+                        The Team
+                    </h2>
+                    <div class="member">
+                        <div class="member-name">Cecilia Wirén</div>
+                        <div class="member-social">
+                            <a href="https://twitter.com/CeciliaSHARP" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/ceciliasharp/" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Fabian Miiro</div>
+                        <div class="member-social">
+                            <a href="https://twitter.com/iloabn" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/fabianmiiro/" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Andrea Klintelius</div>
+                        <div class="member-social">
+                            <a href="https://twitter.com/drea1112" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/andrea-klintelius-22445b9/" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Mattias Karlsson</div>
+                        <div class="member-social">
+                            <a href="https://twitter.com/devlead" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/devlead/" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Jimmy Engström</div>
+                        <div class="member-social">
+                            <a href="https://twitter.com/EngstromJimmy" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/engstromjimmy/" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Rickard öh</div>
+                        <div class="member-social">
+                            <a href="https://twitter.com/kalasp" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/rickardoh/" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Sebastian Rosengren</div>
+                        <div class="member-social">
+                            <a href="https://twitter.com/srrosengren" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/srosengren/" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Magnus Timner</div>
+                        <div class="member-social">
+                            <a href="https://twitter.com/MTimner" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/magnustimner/" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Mattias Lögdberg</div>
+                        <div class="member-social">
+                            <a href="https://twitter.com/mlogdberg" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/logdberg/" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Viktor Karlström</div>
+                        <div class="member-social">
+                            <a href="https://twitter.com/karlstroems" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/viktor-karlstrom/" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Johan Normén</div>
+                        <div class="member-social">
+                            <a href="https://twitter.com/Johannormen" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/johannormen/" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Jim Elfving</div>
+                        <div class="member-social">
+                            <a href="https://twitter.com/jim_elfving" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/jim-elfving-9b545842/" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Mathias Olausson</div>
+                        <div class="member-social">
+                            <a href="https://twitter.com/molausson" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/mathiasolausson/" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Manuel Ericstam</div>
+                        <div class="member-social">
+                            <a href="https://twitter.com/EricstamManuel" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/manuel-ericstam/" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Abdirahman Farah</div>
+                        <div class="member-social">
+                            <a href="" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/abdirahman-farah-5b405b87/" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Maria Sliufko</div>
+                        <div class="member-social">
+                            <a href="" class="social-link">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/maria-sliufko-b8773749/" class="social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+    </section>
+    }
+    @*<div id="map"></div>*@
+
+    <footer>
+        <section id="mainFooter" class="footer-section">
+            <div class="container" id="footer">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h3>Location</h3>
+                        <p>
+                            @{
+                                var locationUrl = "https://goo.gl/maps/1TAjEwXkM5mc51h5A";
+                            }
+                            <strong style="font-size: 24px;">Lindholmen Conference Centre</strong><br />
+                            Lindholmspiren 5<br />
+                            417 56 Göteborg
+                        </p>
+                    </div>
+                    <div class="col-sm-8">
+                        <h4>Bus stop</h4>
+                        <p>Lindholmen</p>
+                        <h4>Coordinates</h4>
+                        <p>
+                            <a href="@locationUrl" target="_blank">57.707143, 11.940031</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+    @section scripts {
+        <script>$(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+            });</script>
+        @*<script>
+                initializeMap();
+            </script>
+        *@
+    }
+
+    @section meta {
+        <meta property="og:image" content="https://swetugg.se/content/gbg-2023/img/swetugg-gron-kvadrat.png" />
+        <meta property="og:description" content="Swetugg is back in Stockholm with another interesting, fun, and affordable conference in February 2023" />
+    }
