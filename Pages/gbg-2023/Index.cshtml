@@ -221,11 +221,7 @@
                         @foreach (var sponsor in exhibitors)
                         {
                             var imgUrl = sponsor.SponsorImages.FirstOrDefault(i => i.ImageType.Slug == "sponsor-thumb")?.ImageUrl;
-                            if (imgUrl == null)
-                            {
-                                imgUrl = "/Content/gbg-2023/img/sponsors/" + sponsor.Slug + "-thumb.png";
-                            }
-
+ 
                             <li>
                                 <a href="@sponsor.Web">
                                     <img class="sponsor-image" src="@imgUrl" />
@@ -251,11 +247,6 @@
                         @foreach (var sponsor in supportSponsors)
                         {
                             var imgUrl = sponsor.SponsorImages.FirstOrDefault(i => i.ImageType.Slug == "sponsor-thumb")?.ImageUrl;
-                            if (imgUrl == null)
-                            {
-                                imgUrl = "/Content/gbg-2023/img/sponsors/" + sponsor.Slug + "-thumb.png";
-                            }
-
                             <li>
                                 <a href="@sponsor.Web">
                                     <img class="sponsor-image" src="@imgUrl" />
@@ -280,10 +271,6 @@
                         @foreach (var sponsor in podcasts)
                         {
                             var imgUrl = sponsor.SponsorImages.FirstOrDefault(i => i.ImageType.Slug == "sponsor-thumb")?.ImageUrl;
-                            if (imgUrl == null)
-                            {
-                                imgUrl = "/Content/gbg-2023/img/sponsors/" + sponsor.Slug + "-thumb.png";
-                            }
 
                             <li>
                                 <a href="@sponsor.Web">
@@ -339,7 +326,7 @@
                             @for (int i = 0; i < speakersLeft; i++)
                             {
                                 <li>
-                                    <img class="img-circle" src="/Content/gbg-2023/img/unknown.png" />
+                                    <img class="img-circle" src="/gbg-2023/img/unknown.png" />
                                     <div>
 
                                     </div>
@@ -918,6 +905,6 @@
 }
 
 @section meta {
-    <meta property="og:image" content="https://swetugg.se/content/gbg-2023/img/swetugg-gron-kvadrat.png" />
-    <meta property="og:description" content="Swetugg is back in Stockholm with another interesting, fun, and affordable conference in February 2023" />
+    <meta property="og:image" content="https://swetugg.se/gbg-2023/img/swetugg-gron-kvadrat.png" />
+    <meta property="og:description" content="Swetugg Göteborg, a conference for dotnet developers October 2023" />
 }
