@@ -853,7 +853,7 @@ footer {
   display: inline-block;
 }
 .photo-collection span.tag-ms-mvp {
-  background-image: url("/sthlm-2020/img/tags/front-ms-mvp-small.png");
+  background-image: url("/gbg-2023/img/tags/front-ms-mvp-small.png");
   width: 25px;
   height: 25px;
   position: absolute;
@@ -880,7 +880,7 @@ footer {
   max-width: 100%;
 }
 .speaker span.tag-ms-mvp {
-  background-image: url("/sthlm-2020/img/tags/speaker-ms-mvp.png");
+  background-image: url("/gbg-2023/img/tags/speaker-ms-mvp.png");
   width: 181px;
   height: 74px;
   position: absolute;
