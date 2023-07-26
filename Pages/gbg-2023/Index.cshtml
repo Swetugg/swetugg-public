@@ -317,11 +317,11 @@
                                 var tagClasses = speaker.Tags.Select(t => "tag-" + t.Slug).ToArray();
 
                                 <li>
-                                    <a href="@Url.Action("Speaker", "Conference", new {speakerSlug = speaker.Slug})">
+                                    <a href="/gbg-2023/speakers/@speaker.Slug">
+                                    @* href="@Url.Action("Speaker", "Conference", new {speakerSlug = speaker.Slug})"> *@
                                         @{
                                             string imageUrl =
-                                                speaker.SpeakerImages.FirstOrDefault(i => i.ImageType.Slug == "thumb")?.ImageUrl
-                                                ?? "/Content/gbg-2023/SpeakerPictures/" + speaker.Slug + ".png";
+                                                speaker.SpeakerImages.FirstOrDefault(i => i.ImageType.Slug == "thumb")?.ImageUrl;
                                         }
                                         <div class="photo">
                                             @foreach (var tagClass in tagClasses)
