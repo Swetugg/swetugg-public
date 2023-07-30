@@ -221,11 +221,7 @@
                         @foreach (var sponsor in exhibitors)
                         {
                             var imgUrl = sponsor.SponsorImages.FirstOrDefault(i => i.ImageType.Slug == "sponsor-thumb")?.ImageUrl;
-                            if (imgUrl == null)
-                            {
-                                imgUrl = "/Content/gbg-2023/img/sponsors/" + sponsor.Slug + "-thumb.png";
-                            }
-
+ 
                             <li>
                                 <a href="@sponsor.Web">
                                     <img class="sponsor-image" src="@imgUrl" />
@@ -251,11 +247,6 @@
                         @foreach (var sponsor in supportSponsors)
                         {
                             var imgUrl = sponsor.SponsorImages.FirstOrDefault(i => i.ImageType.Slug == "sponsor-thumb")?.ImageUrl;
-                            if (imgUrl == null)
-                            {
-                                imgUrl = "/Content/gbg-2023/img/sponsors/" + sponsor.Slug + "-thumb.png";
-                            }
-
                             <li>
                                 <a href="@sponsor.Web">
                                     <img class="sponsor-image" src="@imgUrl" />
@@ -280,10 +271,6 @@
                         @foreach (var sponsor in podcasts)
                         {
                             var imgUrl = sponsor.SponsorImages.FirstOrDefault(i => i.ImageType.Slug == "sponsor-thumb")?.ImageUrl;
-                            if (imgUrl == null)
-                            {
-                                imgUrl = "/Content/gbg-2023/img/sponsors/" + sponsor.Slug + "-thumb.png";
-                            }
 
                             <li>
                                 <a href="@sponsor.Web">
@@ -339,7 +326,7 @@
                             @for (int i = 0; i < speakersLeft; i++)
                             {
                                 <li>
-                                    <img class="img-circle" src="/Content/gbg-2023/img/unknown.png" />
+                                    <img class="img-circle" src="/gbg-2023/img/unknown.png" />
                                     <div>
 
                                     </div>
@@ -676,10 +663,10 @@
             <div class="col-lg-6 col-lg-offset-3">
                 @if (ticketSalesOpen)
                 {
-                    <!-- Ticket Tailor Widget. Paste this in to your website where you want the widget to appear. Do no change the code or the widget may not work properly. -->
+                    <!-- Ticket Tailor Widget. Paste this into your website where you want the widget to appear. Do not change the code or the widget may not work properly. -->
                     <div class="tt-widget">
-                        <div class="tt-widget-fallback"><p><a href="https://www.tickettailor.com/checkout/new-session/id/1748910/chk/44cb/" target="_blank">Click here to buy tickets</a><br /><small><a href="https://www.tickettailor.com?rf=wdg" class="tt-widget-powered">Sell tickets online with Ticket Tailor</a></small></p></div>
-                        <script src="https://cdn.tickettailor.com/js/widgets/min/widget.js" data-url="https://www.tickettailor.com/checkout/new-session/id/1748910/chk/44cb/" data-type="inline" data-inline-minimal="false" data-inline-show-logo="true" data-inline-bg-fill="true"></script>
+                        <div class="tt-widget-fallback"><p><a href="https://www.tickettailor.com/checkout/new-session/id/2863901/chk/dd88/?ref=swetugg-site" target="_blank">Click here to buy tickets</a><br /></p></div>
+                        <script src="https://cdn.tickettailor.com/js/widgets/min/widget.js" data-url="https://www.tickettailor.com/checkout/new-session/id/2863901/chk/dd88/?ref=swetugg-site" data-type="inline" data-inline-minimal="false" data-inline-show-logo="true" data-inline-bg-fill="true" data-inline-inherit-ref-from-url-param="" data-inline-ref="swetugg-site"></script>
                     </div>
                     <!-- End of Ticket Tailor Widget -->
                     <p>
@@ -918,6 +905,6 @@
 }
 
 @section meta {
-    <meta property="og:image" content="https://swetugg.se/content/gbg-2023/img/swetugg-gron-kvadrat.png" />
-    <meta property="og:description" content="Swetugg is back in Stockholm with another interesting, fun, and affordable conference in February 2023" />
+    <meta property="og:image" content="https://swetugg.se/gbg-2023/img/swetugg-gron-kvadrat.png" />
+    <meta property="og:description" content="Swetugg Göteborg, a conference for dotnet developers October 2023" />
 }
