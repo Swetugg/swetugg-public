@@ -1,3 +1,4 @@
 {
-    "liveSassCompile.settings.partialsList": []
+    "liveSassCompile.settings.partialsList": [],
+    "dotnet.defaultSolution": "swetugg-public.sln"
 }
