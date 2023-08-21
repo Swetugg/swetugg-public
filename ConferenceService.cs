@@ -32,6 +32,8 @@ public class ConferenceService
                 .Include(c => c.Speakers.Where(s => s.Published))
                     .ThenInclude(s => s.SpeakerImages)
                         .ThenInclude(s => s.ImageType)
+                .Include(c => c.Speakers.Where(s => s.Published))
+                    .ThenInclude(s => s.Tags)
                 .Include(c => c.Sponsors.Where(s => s.Published))
                     .ThenInclude(s => s.SponsorImages)
                         .ThenInclude(s => s.ImageType)

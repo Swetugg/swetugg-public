@@ -233,18 +233,18 @@ public partial class SwetuggContext : DbContext
 
             entity.HasMany(d => d.Tags).WithMany(p => p.Speakers)
                 .UsingEntity<Dictionary<string, object>>(
-                    "SpeakerTag",
+                    "SpeakerTags",
                     r => r.HasOne<Tag>().WithMany()
-                        .HasForeignKey("TagId")
+                        .HasForeignKey("Tag_Id")
                         .HasConstraintName("FK_dbo.SpeakerTags_dbo.Tags_Tag_Id"),
                     l => l.HasOne<Speaker>().WithMany()
-                        .HasForeignKey("SpeakerId")
+                        .HasForeignKey("Speaker_Id")
                         .HasConstraintName("FK_dbo.SpeakerTags_dbo.Speakers_Speaker_Id"),
                     j =>
                     {
-                        j.HasKey("SpeakerId", "TagId").HasName("PK_dbo.SpeakerTags");
-                        j.HasIndex(new[] { "SpeakerId" }, "IX_Speaker_Id");
-                        j.HasIndex(new[] { "TagId" }, "IX_Tag_Id");
+                        j.HasKey("Speaker_Id", "Tag_Id").HasName("PK_dbo.SpeakerTags");
+                        j.HasIndex(new[] { "Speaker_Id" }, "IX_Speaker_Id");
+                        j.HasIndex(new[] { "Tag_Id" }, "IX_Tag_Id");
                     });
         });
 
