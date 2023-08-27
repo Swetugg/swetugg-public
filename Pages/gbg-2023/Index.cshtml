@@ -21,8 +21,7 @@
                             currentTime < conference.End.Value.Date.AddDays(1);
     }
 
-    bool isCfpOpen = conference.CfpStart.HasValue && conference.CfpStart <= currentTime.Date &&
-                   (!conference.CfpEnd.HasValue || conference.CfpEnd >= currentTime.Date);
+    bool isCfpOpen = false; //New logic will be added on issue #178
 
     int speakersLeft = conference.MinNumberOfSpeakers - conference.Speakers.Count;
 

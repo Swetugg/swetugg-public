@@ -50,9 +50,6 @@ public partial class SwetuggContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PK_dbo.Conferences");
 
-            entity.Property(e => e.CfpEnd).HasColumnType("datetime");
-            entity.Property(e => e.CfpStart).HasColumnType("datetime");
-            entity.Property(e => e.CfpVipCode).HasMaxLength(50);
             entity.Property(e => e.Description).HasColumnType("ntext");
             entity.Property(e => e.End).HasColumnType("datetime");
             entity.Property(e => e.Name).HasMaxLength(250);
