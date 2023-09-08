@@ -4,7 +4,7 @@ using swetugg_public.DbModels;
 
 namespace swetugg_public;
 
-public class ConferenceService
+public class ConferenceService : IConferenceService
 {
     private readonly SwetuggContext _context;
     private readonly IMemoryCache _cache;
@@ -43,17 +43,72 @@ public class ConferenceService
             .Include(s => s.Tags)
             .First(s => s.Conference.Slug.ToLower().Equals(slug.ToLower()) && s.Slug.ToLower().Equals(speakerSlug.ToLower())));
 
-    public T ReadThroughCache<T>(string cacheKey, Func<T> fill)
+    private T ReadThroughCache<T>(string cacheKey, Func<T> fill)
     {
         cacheKey = cacheKey.ToLower();
-        if(!_cache.TryGetValue<T>(cacheKey, out T? value))
+        if (!_cache.TryGetValue<T>(cacheKey, out T? value))
         {
             value = fill();
 
-            if(value != null)
+            if (value != null)
                 _cache.Set(cacheKey, value, TimeSpan.FromMinutes(5));
         }
 
         return value;
     }
+}
+
+public class MockDataConferenceService : IConferenceService
+{
+    private readonly Conference _conference;
+    public MockDataConferenceService()
+    {
+        var startDate = DateTime.Today.AddDays(-1).AddHours(8);
+        var endDate = DateTime.Today.AddDays(1).AddHours(17);
+        _conference = new Conference { Start = startDate, End = endDate };
+
+        var currentTime = startDate;
+        for (var roomIndex = 0; roomIndex < 3; roomIndex++)
+        {
+            var room = new Room { Id = roomIndex, Name = $"Room {roomIndex}" };
+            _conference.Rooms.Add(room);
+        }
+        var index = 1;
+        for (var dayIndex = 1; dayIndex <= 3; dayIndex++)
+        {
+            for (var speakerIndex = 0; speakerIndex < 9; speakerIndex++)
+            {
+                var slot = new Slot { Start = currentTime, End = currentTime.AddMinutes(55) };
+                for (var roomIndex = 0; roomIndex < _conference.Rooms.Count; roomIndex++)
+                {
+                    var room = _conference.Rooms.ElementAt(roomIndex);
+                    var speaker = new Speaker { Id = index, Name = $"Speaker {index}", Published = true, Slug = $"speakerslug{index}" };
+                    var session = new Session { Id = index, Name = $"Session {index}", Published = true, Slug = $"sessionslug{index}" };
+                    session.Speakers.Add(speaker);
+                    speaker.Sessions.Add(session);
+                    var roomSlot = new RoomSlot { RoomId = roomIndex, AssignedSession = session, Start = currentTime, End = currentTime.AddMinutes(55) };
+                    room.RoomSlots.Add(roomSlot);
+                    slot.RoomSlots.Add(roomSlot);
+
+                    _conference.Sessions.Add(session);
+                    _conference.Speakers.Add(speaker);
+                    index++;
+                }
+                _conference.Slots.Add(slot);
+                currentTime = currentTime.AddHours(1);
+            }
+            currentTime = currentTime.AddDays(1).AddHours(-9);
+        }
+    }
+    public Conference? Get(string slug) =>
+        _conference;
+
+    public Speaker? GetSpeaker(string slug, string speakerSlug) =>
+        _conference.Speakers.FirstOrDefault(s => s.Slug == speakerSlug);
+}
+
+public interface IConferenceService
+{
+    Conference? Get(string slug);
+    Speaker? GetSpeaker(string slug, string speakerSlug);
 }

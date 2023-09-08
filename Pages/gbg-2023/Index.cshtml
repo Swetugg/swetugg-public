@@ -1,6 +1,6 @@
 @page
 @using System.Globalization
-@inject ConferenceService conferenceService
+@inject IConferenceService conferenceService
 @inject IConfiguration configuration
 @{
     var conference = conferenceService.Get("gbg-2023");
@@ -44,8 +44,8 @@
         ("previousLinks", true),
         ("sponsor", true),
         ("speakers", true),
-        ("sessions", false),
-        ("schedule", false),
+        ("sessions", true),
+        ("schedule", true),
         ("tickets", true),
         ("contact", true),
         ("members", true)
@@ -507,7 +507,7 @@
                                                                 if (sessionSpeakers.Count > 0)
                                                                 {
                                                                     var firstSpeaker = sessionSpeakers.First();
-                                                                    <a href="@Url.Action("Speaker", new {speakerSlug = firstSpeaker.Slug})#@session.Slug">
+                                                                    <a href="/gbg-2023/speakers/@firstSpeaker.Slug#@session.Slug">
                                                                         <div class="schemacell-rad1v2">
                                                                             @session.Name
                                                                         </div>
@@ -515,7 +515,7 @@
                                                                     <div class="schemacell-rad2v2">
                                                                         @foreach (var speaker in sessionSpeakers)
                                                                         {
-                                                                            @Html.ActionLink(speaker.Name, "Speaker", new { speakerSlug = speaker.Slug })<br />
+                                                                            <a href="/gbg-2023/speakers/@speaker.Slug">@speaker.Name</a>
                                                                         }
                                                                     </div>
                                                                 }
@@ -585,7 +585,7 @@
                                                                             <span class="schemacell-tid">@roomSlot.Start.Value.ToString("HH:mm") - @roomSlot.End.Value.ToString("HH:mm")</span>
                                                                         }
                                                                         var firstSpeaker = sessionSpeakers.First();
-                                                                        <a href="@Url.Action("Speaker", new {speakerSlug = firstSpeaker.Slug})#@session.Slug">
+                                                                        <a href="/gbg-2023/speakers/@firstSpeaker.Slug#@session.Slug">
                                                                             <div class="schemacell-rad1v2">
                                                                                 @session.Name
                                                                             </div>
@@ -593,7 +593,7 @@
                                                                         <div class="schemacell-rad2v2">
                                                                             @foreach (var speaker in sessionSpeakers)
                                                                             {
-                                                                                @Html.ActionLink(speaker.Name, "Speaker", new { speakerSlug = speaker.Slug })<br />
+                                                                                <a href="/gbg-2023/speakers/@speaker.Slug">@speaker.Name</a>
                                                                             }
                                                                         </div>
                                                                     }
