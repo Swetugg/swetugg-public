@@ -1,6 +1,6 @@
 @page "{speakerSlug}"
 @using System.Globalization
-@inject ConferenceService conferenceService
+@inject IConferenceService conferenceService
 @inject IConfiguration configuration
 @{
     var speakerSlug = Model.RouteData.Values["speakerSlug"].ToString();
