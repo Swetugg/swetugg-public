@@ -79,20 +79,27 @@ public class MockDataConferenceService : IConferenceService
             for (var speakerIndex = 0; speakerIndex < 9; speakerIndex++)
             {
                 var slot = new Slot { Start = currentTime, End = currentTime.AddMinutes(55) };
-                for (var roomIndex = 0; roomIndex < _conference.Rooms.Count; roomIndex++)
+                if (currentTime.Hour == 12)
                 {
-                    var room = _conference.Rooms.ElementAt(roomIndex);
-                    var speaker = new Speaker { Id = index, Name = $"Speaker {index}", Published = true, Slug = $"speakerslug{index}" };
-                    var session = new Session { Id = index, Name = $"Session {index}", Published = true, Slug = $"sessionslug{index}" };
-                    session.Speakers.Add(speaker);
-                    speaker.Sessions.Add(session);
-                    var roomSlot = new RoomSlot { RoomId = roomIndex, AssignedSession = session, Start = currentTime, End = currentTime.AddMinutes(55) };
-                    room.RoomSlots.Add(roomSlot);
-                    slot.RoomSlots.Add(roomSlot);
+                    slot.Title = "Lunch";
+                }
+                else
+                {
+                    for (var roomIndex = 0; roomIndex < _conference.Rooms.Count; roomIndex++)
+                    {
+                        var room = _conference.Rooms.ElementAt(roomIndex);
+                        var speaker = new Speaker { Id = index, Name = $"Speaker {index}", Published = true, Slug = $"speakerslug{index}" };
+                        var session = new Session { Id = index, Name = $"Session {index}", Published = true, Slug = $"sessionslug{index}" };
+                        session.Speakers.Add(speaker);
+                        speaker.Sessions.Add(session);
+                        var roomSlot = new RoomSlot { RoomId = roomIndex, AssignedSession = session, Start = currentTime, End = currentTime.AddMinutes(55) };
+                        room.RoomSlots.Add(roomSlot);
+                        slot.RoomSlots.Add(roomSlot);
 
-                    _conference.Sessions.Add(session);
-                    _conference.Speakers.Add(speaker);
-                    index++;
+                        _conference.Sessions.Add(session);
+                        _conference.Speakers.Add(speaker);
+                        index++;
+                    }
                 }
                 _conference.Slots.Add(slot);
                 currentTime = currentTime.AddHours(1);
