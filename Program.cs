@@ -35,6 +35,36 @@ app.MapGet("/", async context =>
   context.Response.Redirect("/gbg-2023");
 });
 
+app.MapGet("/{slug}/now-feed", (string slug, IConferenceService conferenceService) =>
+{
+  // TODO: Fix timezones
+  var conference = conferenceService.Get(slug);
+  return conference?.Slots.Select(s => new
+  {
+    Start = s.Start.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffff+02:00"),
+    End = s.End.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffff+02:00"),
+    s.Title,
+    Sessions = s.RoomSlots.Where(rs => rs.AssignedSession != null && rs.AssignedSession.Published).Select(r => new
+    {
+      Room = conference?.Rooms?.Where(room => room.Id == r.RoomId).FirstOrDefault()?.Name,
+      r.AssignedSession?.Name,
+      r.AssignedSession?.Description,
+      Start = r.Start?.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffff+02:00"),
+      End = r.End?.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffff+02:00"),
+      Speakers = r.AssignedSession?.Speakers.Select(speaker => new
+      {
+        speaker.Name,
+        speaker.Slug
+      }),
+      Tags = r.AssignedSession?.Tags.Where(t => t.Featured).Select(tag => new
+      {
+        tag.Name,
+        tag.Description,
+      })
+    })
+  });
+});
+
 app.MapRazorPages();
 
 app.Run();
