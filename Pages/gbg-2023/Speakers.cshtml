@@ -50,19 +50,19 @@
                             {
                                 nameText = nameText + " with @" + speaker.Twitter;
                             }
-                            var twitterText = nameText + " at @Swetugg Sthlm 2023!";
+                            var twitterText = nameText + " at @Swetugg Gbg 2023!";
                             var avail = 229 - twitterText.Length;
                             var roomSlot = session.RoomSlots.FirstOrDefault();
 
                             twitterText = string.Format(
-                                twitterText,
-                                (session.Name.Length <= avail) ? session.Name : session.Name.Substring(0, avail - 3) + "..."
-                                );
+                            twitterText,
+                            (session.Name.Length <= avail) ? session.Name : session.Name.Substring(0, avail - 3) + "..."
+                            );
                             var linkUrl = HttpContext.Request.GetDisplayUrl() + "#" + session.Slug;
                         }
                         <a href="#@session.Slug">
                             <h2>
-                                @session.Name<br/>
+                                @session.Name<br />
                                 @if (roomSlot != null)
                                 {
                                     var start = roomSlot.Start ?? roomSlot.Slot.Start;
@@ -99,7 +99,7 @@
         var speakerUrl = HttpContext.Request.GetDisplayUrl();
     }
 
-    @if (session != null)
+@if (session != null)
     {
         var sessionUrl = speakerUrl + "#" + session.Slug;
 
@@ -108,15 +108,16 @@
         <meta property="og:description" content="@session.Description" />
         if (session.VideoPublished && !string.IsNullOrWhiteSpace(session.VideoUrl))
         {
-            var youtubeId = session.VideoUrl.Substring(session.VideoUrl.LastIndexOf("/", StringComparison.InvariantCultureIgnoreCase) + 1);
+            var youtubeId = session.VideoUrl.Substring(session.VideoUrl.LastIndexOf("/",
+            StringComparison.InvariantCultureIgnoreCase) + 1);
 
-            <meta property="og:type" content="article"/>
+            <meta property="og:type" content="article" />
 
-            <meta property="og:image" content="https://i1.ytimg.com/vi/@(youtubeId)/hqdefault.jpg"/>
+            <meta property="og:image" content="https://i1.ytimg.com/vi/@(youtubeId)/hqdefault.jpg" />
             @*
-                <meta property="og:video" content="https://www.youtube.com/e/@(youtubeId)?autoplay=1"/>
-                <meta property="og:video:secure_url" content="https://www.youtube.com/e/@(youtubeId)?autoplay=1"/>
-            *@
+<meta property="og:video" content="https://www.youtube.com/e/@(youtubeId)?autoplay=1"/>
+<meta property="og:video:secure_url" content="https://www.youtube.com/e/@(youtubeId)?autoplay=1"/>
+*@
         }
         else
         {

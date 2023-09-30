@@ -40,6 +40,11 @@ public class ConferenceService : IConferenceService
             .Include(s => s.SpeakerImages)
                 .ThenInclude(i => i.ImageType)
             .Include(s => s.Sessions.Where(session => session.Published))
+                .ThenInclude(s => s.RoomSlots)
+                    .ThenInclude(rs => rs.Slot)
+            .Include(s => s.Sessions.Where(session => session.Published))
+                .ThenInclude(s => s.RoomSlots)
+                    .ThenInclude(rs => rs.Room)
             .Include(s => s.Tags)
             .First(s => s.Conference.Slug.ToLower().Equals(slug.ToLower()) && s.Slug.ToLower().Equals(speakerSlug.ToLower())));
 
