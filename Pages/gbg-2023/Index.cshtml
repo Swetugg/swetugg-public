@@ -3,7 +3,8 @@
 @inject IConferenceService conferenceService
 @inject IConfiguration configuration
 @{
-    var conference = conferenceService.Get("gbg-2023");
+    var slug = "gbg-2023";
+    var conference = conferenceService.Get(slug);
     if (conference == null)
         throw new Exception("Conference not found in database");
 
@@ -56,8 +57,8 @@
 
 <section class="intro">
     <div class="intro-body">
-        @*		<video id="videoBackground" preload="auto" autoplay="" loop="" muted="" poster="~/Content/gbg-2023/img/swetugg-hero-video-firstframe.jpg">
-                <source src="~/Content/gbg-2023/video/swetugg-hero-video-low.mp4" type="video/mp4" />
+        @*		<video id="videoBackground" preload="auto" autoplay="" loop="" muted="" poster="~/Content/@slug/img/swetugg-hero-video-firstframe.jpg">
+                <source src="~/Content/@slug/video/swetugg-hero-video-low.mp4" type="video/mp4" />
             </video>
         *@		<div class="container">
             <div class="row">
@@ -70,7 +71,7 @@
                     @if (conferenceOngoing)
                     {
                         <p>
-                            <a href="/gbg-2023/now" class="btn btn-default btn-lg">Live-schedule</a>
+                            <a href="/@slug/now" class="btn btn-default btn-lg">Live-schedule</a>
                         </p>
                     }
                 </div>
@@ -122,7 +123,7 @@
                 </div> *@
             @* new images to 2020 needed here
                 <div class="col-lg-6">
-                    <a href="https://www.flickr.com/photos/swetugg/albums/with/72157669362129259" target="_blank"><img src="~/Content/gbg-2023/img/swetugg_flickr2018.jpg" alt="Swetugg Flickr" class="img-responsive flickr-link" /></a>
+                    <a href="https://www.flickr.com/photos/swetugg/albums/with/72157669362129259" target="_blank"><img src="~/Content/@slug/img/swetugg_flickr2018.jpg" alt="Swetugg Flickr" class="img-responsive flickr-link" /></a>
                 </div> *@
         </div>
         <div class="row text-center">
@@ -197,7 +198,7 @@
                     Your organization can get in touch with hundreds of great software developers by becoming an exhibitor or a digital sponsor. It's an amazing opportunity!
                 </p>
                 <p>
-                    <a href="gbg-2023/sponsorship" class="btn btn-default btn-lg">See our sponsorship packages</a>
+                    <a href="/@slug/sponsorship" class="btn btn-default btn-lg">See our sponsorship packages</a>
                 </p>
             </div>
         </div>
@@ -303,7 +304,7 @@
                                 var tagClasses = speaker.Tags.Select(t => "tag-" + t.Slug).ToArray();
 
                                 <li>
-                                    <a href="/gbg-2023/speakers/@speaker.Slug">
+                                    <a href="/@slug/speakers/@speaker.Slug">
                                     @* href="@Url.Action("Speaker", "Conference", new {speakerSlug = speaker.Slug})"> *@
                                         @{
                                             string imageUrl =
@@ -325,7 +326,7 @@
                             @for (int i = 0; i < speakersLeft; i++)
                             {
                                 <li>
-                                    <img class="img-circle" src="/gbg-2023/img/unknown.png" />
+                                    <img class="img-circle" src="/@slug/img/unknown.png" />
                                     <div>
 
                                     </div>
@@ -422,7 +423,7 @@
                                     <ul class="sessions-speakers">
                                         @foreach (var speaker in sessionSpeakers)
                                         {
-                                            string imageUrl = "/Content/gbg-2023/SpeakerPictures/" + speaker.Slug + ".png";
+                                            string imageUrl = "/Content/@slug/SpeakerPictures/" + speaker.Slug + ".png";
                                             IDictionary<string, SpeakerImage> imgLookup;
                                             if (speakerImages.TryGetValue(speaker.Id, out imgLookup))
                                             {
@@ -506,7 +507,7 @@
                                                                 if (sessionSpeakers.Count > 0)
                                                                 {
                                                                     var firstSpeaker = sessionSpeakers.First();
-                                                                    <a href="/gbg-2023/speakers/@firstSpeaker.Slug#@session.Slug">
+                                                                    <a href="/@slug/speakers/@firstSpeaker.Slug#@session.Slug">
                                                                         <div class="schemacell-rad1v2">
                                                                             @session.Name
                                                                         </div>
@@ -514,7 +515,7 @@
                                                                     <div class="schemacell-rad2v2">
                                                                         @foreach (var speaker in sessionSpeakers)
                                                                         {
-                                                                            <a href="/gbg-2023/speakers/@speaker.Slug">@speaker.Name</a>
+                                                                            <a href="/@slug/speakers/@speaker.Slug">@speaker.Name</a>
                                                                         }
                                                                     </div>
                                                                 }
@@ -584,7 +585,7 @@
                                                                             <span class="schemacell-tid">@roomSlot.Start.Value.ToString("HH:mm") - @roomSlot.End.Value.ToString("HH:mm")</span>
                                                                         }
                                                                         var firstSpeaker = sessionSpeakers.First();
-                                                                        <a href="/gbg-2023/speakers/@firstSpeaker.Slug#@session.Slug">
+                                                                        <a href="/@slug/speakers/@firstSpeaker.Slug#@session.Slug">
                                                                             <div class="schemacell-rad1v2">
                                                                                 @session.Name
                                                                             </div>
@@ -592,7 +593,7 @@
                                                                         <div class="schemacell-rad2v2">
                                                                             @foreach (var speaker in sessionSpeakers)
                                                                             {
-                                                                                <a href="/gbg-2023/speakers/@speaker.Slug">@speaker.Name</a>
+                                                                                <a href="/@slug/speakers/@speaker.Slug">@speaker.Name</a>
                                                                             }
                                                                         </div>
                                                                     }
@@ -683,7 +684,7 @@
                     <p>
                         You can can start buying tickets on Tuesday 1 of August 10:00! Our ticket price will be 3200SEK.
                         We will also have a limited number of early bird tickets at 2000SEK.
-                        As well as a discount for our sponsors (see our <a href="gbg-2023/sponsorship">sponsor packages</a>).<br />
+                        As well as a discount for our sponsors (see our <a href="/@slug/sponsorship">sponsor packages</a>).<br />
                         Would you like a reminder? Add yourself to our mailing list!
                     </p>
                     @*<p>
@@ -904,6 +905,6 @@
 }
 
 @section meta {
-    <meta property="og:image" content="https://swetugg.se/gbg-2023/img/swetugg-gron-kvadrat.png" />
+    <meta property="og:image" content="https://swetugg.se/@slug/img/swetugg-gron-kvadrat.png" />
     <meta property="og:description" content="Swetugg Göteborg, a conference for dotnet developers October 2023" />
 }

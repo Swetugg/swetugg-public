@@ -3,8 +3,9 @@
 @inject IConferenceService conferenceService
 @inject IConfiguration configuration
 @{
+    var slug = "gbg-2023";
     var speakerSlug = Model.RouteData.Values["speakerSlug"].ToString();
-    var speaker = conferenceService.GetSpeaker("gbg-2023", speakerSlug);
+    var speaker = conferenceService.GetSpeaker(slug, speakerSlug);
 
     var speakerImageUrl = string.Empty;
     var firstThumb = speaker.SpeakerImages.FirstOrDefault(i => i.ImageType.Slug == "thumb");
