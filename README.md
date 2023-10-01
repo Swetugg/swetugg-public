@@ -49,6 +49,10 @@ Change the following properties of the pages
 - `Sponsorship.cshtml`
     1. `<h1 class="noSubtitle">Sponsorship Göteborg 2023</h1>`
 
+### Update CSS
+- In `swetugg.scss` Change any reference to the old slug, such as `/gbg-2023/img/top2022.jpg` to point to the new slug.
+- Remember to build CSS from the SCSS file
+
 ### Make the new page default (when you're ready)
 1. Update this code in `Program.cs` to be the desired slug instead of "gbg-2023".
 ```
