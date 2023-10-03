@@ -22,33 +22,34 @@
                             currentTime < conference.End.Value.Date.AddDays(1);
     }
 
-    bool isCfpOpen = false; //New logic will be added on issue #178
+    bool isCfpOpen = true; //New logic will be added on issue #178
 
     int speakersLeft = conference.MinNumberOfSpeakers - conference.Speakers.Count;
 
-    // Do we have forced open/close info for ticket sales?
-    if (!bool.TryParse(configuration["Ticket_Sales_Force"], out bool ticketSalesOpen))
-    {
-        // No forced info. Let's see if we have an open date/time
-        DateTime ticketsOpenDateTime;
-        if (DateTime.TryParse(configuration["Ticket_Sales_Open_Date"], 
-            CultureInfo.InvariantCulture,
-            DateTimeStyles.None, out ticketsOpenDateTime))
-        {
-            // Ticket sales should be open if the local conference time is greater than the date/time
-            ticketSalesOpen = currentTime > ticketsOpenDateTime;
-        }
-    }
+    bool ticketSalesOpen = false; //fix in issue #30
+    //// Do we have forced open/close info for ticket sales?
+    //if (!bool.TryParse(configuration["Ticket_Sales_Force"], out bool ticketSalesOpen))
+    //{
+    //    // No forced info. Let's see if we have an open date/time
+    //    DateTime ticketsOpenDateTime;
+    //    if (DateTime.TryParse(configuration["Ticket_Sales_Open_Date"], 
+    //        CultureInfo.InvariantCulture,
+    //        DateTimeStyles.None, out ticketsOpenDateTime))
+    //    {
+    //        // Ticket sales should be open if the local conference time is greater than the date/time
+    //        ticketSalesOpen = currentTime > ticketsOpenDateTime;
+    //    }
+    //}
 
     var activeSections = new[] {
         ("previousLinks", true),
         ("sponsor", true),
         ("speakers", true),
         ("sessions", false),
-        ("schedule", true),
+        ("schedule", false),
         ("tickets", true),
         ("contact", true),
-        ("members", true)
+        ("members", false)
     }
     .Where(section => section.Item2)
     .Select((section, index) => (id: section.Item1, active: section.Item2, even: index % 2 > 0))
@@ -129,7 +130,7 @@
         <div class="row text-center">
             <div class="col-lg-8 col-lg-offset-2">
                 <p>
-                    Looking for information or sessions from previous years? All material is archived here:
+                    Looking for information or sessions from previous conferences? All material is archived here:
                 </p>
                 <ul class="list-inline banner-buttons">
                     <li>
@@ -201,7 +202,8 @@
                     Your organization can get in touch with hundreds of great software developers by becoming an exhibitor or a digital sponsor. It's an amazing opportunity!
                 </p>
                 <p>
-                    <a href="/@slug/sponsorship" class="btn btn-default btn-lg">See our sponsorship packages</a>
+                    <p>If you are interested in a sponshorship email us at <a href="mailto:sponsors@swetugg.se">sponsors@swetugg.se</a>.</p>
+                    @*<a href="/@slug/sponsorship" class="btn btn-default btn-lg">See our sponsorship packages</a>*@
                 </p>
             </div>
         </div>
@@ -685,9 +687,9 @@
                 else
                 {
                     <p>
-                        You can can start buying tickets on Tuesday 1 of August 10:00! Our ticket price will be 3200SEK.
-                        We will also have a limited number of early bird tickets at 2000SEK.
-                        As well as a discount for our sponsors (see our <a href="/@slug/sponsorship">sponsor packages</a>).<br />
+                        You can can start buying tickets on Wednesday 1 of November 10:00! Our ticket price will be X SEK.
+                        We will also have a limited number of early bird tickets at X SEK.
+                        @*As well as a discount for our sponsors (see our <a href="/@slug/sponsorship">sponsor packages</a>).*@<br />
                         Would you like a reminder? Add yourself to our mailing list!
                     </p>
                     @*<p>
@@ -908,6 +910,6 @@
 }
 
 @section meta {
-    <meta property="og:image" content="https://swetugg.se/@slug/img/swetugg-gron-kvadrat.png" />
-    <meta property="og:description" content="Swetugg Göteborg, a conference for dotnet developers October 2023" />
+    <meta property="og:image" content="https://swetugg.se/@slug/img/swetugg-rosa-kvadrat.png" />
+    <meta property="og:description" content="Swetugg Stockholm, a conference for dotnet developers February 2024" />
 }
