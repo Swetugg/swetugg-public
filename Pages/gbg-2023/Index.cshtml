@@ -299,7 +299,7 @@
                 <div class="row">
                     <div class="col-lg-10 col-lg-offset-1">
                         <ul class="photo-collection">
-                            @foreach (var speaker in conference.Speakers)
+                            @foreach (var speaker in conference.Speakers.OrderBy(s => s.Priority).ThenBy(s => Guid.NewGuid()))
                             {
                                 var tagClasses = speaker.Tags.Select(t => "tag-" + t.Slug).ToArray();
 
