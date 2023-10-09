@@ -3,6 +3,8 @@ $dark: #524149;
 $light: #F2FCFF;
 $offlight: #FFF7FA;
 $highlight: #7AD4E5;
+$opposite: #008266;
+$opposite-light: #FFF;
 
 $brand-font-family: 'Rock Salt';
 $header-font-family: 'Open Sans', sans-serif;
@@ -272,13 +274,15 @@ a:focus {
 
 .intro {
     position: relative;
-    display: table;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     height: auto;
     padding: 100px 0;
     text-align: center;
     color: $light;
-    background: url(/sthlm-2024/img/top2020.jpg);
+    background: url(/gbg-2023/img/top2022.jpg);
     background-color: $dark;
     background-size: cover;
 
@@ -293,6 +297,17 @@ a:focus {
     }
 }
 
+.intro>* {
+    position: inherit;
+}
+
+.intro-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+}
+
 #videoBackground {
     position: fixed;
     right: 0;
@@ -302,7 +317,7 @@ a:focus {
     width: auto;
     height: auto;
     z-index: -100;
-    background: url(/sthlm-2024/img/top2020.jpg);
+    background: url(/gbg-2023/img/top2022.jpg);
     background-color: $dark;
     background-size: cover;
 }
@@ -338,7 +353,7 @@ a:focus {
 @media(min-width:767px) {
     .intro {
         height: 70%;
-        padding-top: 150px;
+        padding-top: 200px;
         padding-left: 0;
         padding-bottom: 0;
         padding-right: 0;
@@ -687,6 +702,18 @@ footer,
     background-color: $light;
 }
 
+.btn-opposite {
+    background-color: $opposite;
+    color: white;
+}
+
+.btn-opposite:focus,
+.btn-opposite:hover {
+    background-color: $opposite-light;
+    color: $opposite;
+}
+
+
 
 .btn-huge {
     padding: 25px;
@@ -1011,7 +1038,7 @@ footer {
     }
 
     span.tag-ms-mvp {
-        background-image: url("/sthlm-2024/img/tags/front-ms-mvp-small.png");
+        background-image: url("/gbg-2023/img/tags/front-ms-mvp-small.png");
         width: 25px;
         height: 25px;
         position: absolute;
@@ -1042,7 +1069,7 @@ footer {
     }
 
     span.tag-ms-mvp {
-        background-image: url("/sthlm-2024/img/tags/speaker-ms-mvp.png");
+        background-image: url("/gbg-2023/img/tags/speaker-ms-mvp.png");
         width: 181px;
         height: 74px;
         position: absolute;
