@@ -25,4 +25,8 @@
     <PackageReference Include="westwind.aspnetcore.markdown" Version="3.12.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\gbg-2023\img\logos\" />
+  </ItemGroup>
+
 </Project>
