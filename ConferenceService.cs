@@ -20,7 +20,7 @@ public class ConferenceService : IConferenceService
             .AsSplitQuery()
             .Include(c => c.Rooms)
             .Include(c => c.Sessions.Where(s => s.Published))
-            .Include(c => c.Slots)
+            .Include(c => c.Slots.OrderBy(s => s.Start))
                 .ThenInclude(s => s.RoomSlots)
                     .ThenInclude(rs => rs.AssignedSession)
                         .ThenInclude(s => s.Speakers)
