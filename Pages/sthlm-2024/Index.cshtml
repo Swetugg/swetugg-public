@@ -26,20 +26,19 @@
 
     int speakersLeft = conference.MinNumberOfSpeakers - conference.Speakers.Count;
 
-    bool ticketSalesOpen = false; //fix in issue #30
-    //// Do we have forced open/close info for ticket sales?
-    //if (!bool.TryParse(configuration["Ticket_Sales_Force"], out bool ticketSalesOpen))
-    //{
-    //    // No forced info. Let's see if we have an open date/time
-    //    DateTime ticketsOpenDateTime;
-    //    if (DateTime.TryParse(configuration["Ticket_Sales_Open_Date"], 
-    //        CultureInfo.InvariantCulture,
-    //        DateTimeStyles.None, out ticketsOpenDateTime))
-    //    {
-    //        // Ticket sales should be open if the local conference time is greater than the date/time
-    //        ticketSalesOpen = currentTime > ticketsOpenDateTime;
-    //    }
-    //}
+    // Do we have forced open/close info for ticket sales?
+    if (!bool.TryParse(configuration["Ticket_Sales_Force"], out bool ticketSalesOpen))
+    {
+        // No forced info. Let's see if we have an open date/time
+        DateTime ticketsOpenDateTime;
+        if (DateTime.TryParse(configuration["Ticket_Sales_Open_Date"],
+            CultureInfo.InvariantCulture,
+            DateTimeStyles.None, out ticketsOpenDateTime))
+        {
+            // Ticket sales should be open if the local conference time is greater than the date/time
+            ticketSalesOpen = currentTime > ticketsOpenDateTime;
+        }
+    }
 
     var activeSections = new[] {
         ("previousLinks", true),
@@ -197,17 +196,16 @@
                 <h1>Sponsors</h1>
             </div>
         </div>
-        <div class="row text-center">
-            <div class="col-lg-8 col-lg-offset-2">
-                <p>
-                    Your organization can get in touch with hundreds of great software developers by becoming an exhibitor or a digital sponsor. It's an amazing opportunity!
-                </p>
-                <p>
-                    <p>If you are interested in a sponshorship email us at <a href="mailto:sponsors@swetugg.se">sponsors@swetugg.se</a>.</p>
-                    @*<a href="/@slug/sponsorship" class="btn btn-default btn-lg">See our sponsorship packages</a>*@
-                </p>
+            <div class="row text-center">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <p>
+                        Your organization can get in touch with hundreds of great software developers by becoming an exhibitor or a digital sponsor. It's an amazing opportunity!
+                    </p>
+                    <p>
+                        <a href="/@slug/sponsorship" class="btn btn-default btn-lg">See our sponsorship packages</a>
+                    </p>
+                </div>
             </div>
-        </div>
         @{
             var exhibitors = conference.Sponsors.Where(s => s.Priority < 100).ToArray();
             var supportSponsors = conference.Sponsors.Where(s => s.Priority >= 100 && s.Priority < 200).ToArray();
@@ -675,22 +673,22 @@
                         <script src="https://cdn.tickettailor.com/js/widgets/min/widget.js" data-url="https://www.tickettailor.com/checkout/new-session/id/2863901/chk/dd88/?ref=swetugg-site" data-type="inline" data-inline-minimal="true" data-inline-show-logo="false" data-inline-bg-fill="false" data-inline-inherit-ref-from-url-param="" data-inline-ref="swetugg-site"></script>
                     </div>
                     <!-- End of Ticket Tailor Widget -->
-@*                    <p>
+                   <p>
                         <h3>Early Bird?</h3>
-                        The first batch of tickets that we sell will be at a discounted price of 2000SEK and they are called "early bird", but they are limited in number. 
+                        The first batch of tickets that we sell will have a discount of 1000sek and they are called "early bird", but they are limited in number. 
                         When they are out, they are out! So be quick!    
                         <h3>Invoice?</h3>
                         Do you wish to buy more than five tickets and/or prefer an invoice?
-                        Use the form above and select the option <strong>Pay using invoice (more than 5 tickets)</strong> when completing your order.
+                        Use the form above and select the option <strong>pay using invoice (more than 5 tickets)</strong> when completing your order.
                         For 5 tickets or less we charge an extra fee of 100kr for invoices.
-                    </p>*@
+                    </p>
                 }
                 else
                 {
                     <p>
-                        You can can start buying tickets on Wednesday 1 of November 10:00! @*Our ticket price will be X SEK.
-                        We will also have a limited number of early bird tickets at X SEK.*@
-                        @*As well as a discount for our sponsors (see our <a href="/@slug/sponsorship">sponsor packages</a>).*@<br />
+                        You can can start buying tickets on Wednesday 8 of November 10:00! Our ticket price will be 3950 SEK.
+                        We will also have a limited number of early bird tickets at 2950 SEK.
+                        As well as a discount for our sponsors (see our <a href="/@slug/sponsorship">sponsor packages</a>).<br />
                         Would you like a reminder? Add yourself to our mailing list!
                     </p>
                     @*<p>
