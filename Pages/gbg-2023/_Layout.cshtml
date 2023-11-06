@@ -1,8 +1,15 @@
+@inject IConferenceService conferenceService
 @{
     var fbAppId = ViewData["FacebookAppId"];
     var appInsightsInstrumentationKey = ViewData["InstrumentationKey"];
     var transformNavBar = ViewBag.TransformNavBar == true;
     var slug = "gbg-2023";
+
+    var conference = conferenceService.Get(slug);
+    if (conference == null)
+        throw new Exception("Conference not found in database");
+
+    var currentConferenceMeta = conference.End < DateTime.UtcNow ? conferenceService.GetCurrentConferenceMeta() : null;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -80,6 +87,12 @@
 
     <nav class="navbar navbar-custom navbar-fixed-top @(transformNavBar ? "transform": "top-nav-collapse" )"
         role="navigation">
+        @if (currentConferenceMeta != null)
+        {
+            <div id="old-conference"><span class="part-one">This page is about @conference.Name. </span><span
+                    class="part-two">Go to <a href="/@currentConferenceMeta.Slug">@currentConferenceMeta.Name.</a></span>
+            </div>
+        }
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
