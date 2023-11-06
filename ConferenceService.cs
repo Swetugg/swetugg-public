@@ -34,6 +34,14 @@ public class ConferenceService : IConferenceService
                     .ThenInclude(s => s.ImageType)
             .First(c => c.Slug.ToLower().Equals(slug.ToLower())));
 
+    public CurrentConferenceMeta? GetCurrentConferenceMeta() =>
+        ReadThroughCache("conference-current", () => _context.Conferences
+            .Where(c => c.End > DateTime.UtcNow)
+            .OrderBy(c => c.End)
+            .Select(c => new CurrentConferenceMeta { Name = c.Name, Slug = c.Slug })
+            .FirstOrDefault()
+        );
+
     public Speaker? GetSpeaker(string slug, string speakerSlug) =>
         ReadThroughCache<Speaker?>($"speaker-{speakerSlug.ToLower()}", () => _context.Speakers
             .AsSplitQuery()
@@ -115,6 +123,8 @@ public class MockDataConferenceService : IConferenceService
     public Conference? Get(string slug) =>
         _conference;
 
+    public CurrentConferenceMeta? GetCurrentConferenceMeta() => null;
+
     public Speaker? GetSpeaker(string slug, string speakerSlug) =>
         _conference.Speakers.FirstOrDefault(s => s.Slug == speakerSlug);
 }
@@ -122,5 +132,12 @@ public class MockDataConferenceService : IConferenceService
 public interface IConferenceService
 {
     Conference? Get(string slug);
+    CurrentConferenceMeta? GetCurrentConferenceMeta();
     Speaker? GetSpeaker(string slug, string speakerSlug);
+}
+
+public class CurrentConferenceMeta
+{
+    public string Name { get; set; } = string.Empty;
+    public string Slug { get; set; } = string.Empty;
 }

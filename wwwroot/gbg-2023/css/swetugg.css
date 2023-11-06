@@ -1,6 +1,5 @@
 body {
   width: 100%;
-  height: 100%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   color: #524149;
@@ -108,12 +107,8 @@ a:focus {
 }
 
 #old-conference {
-  z-index: 1000;
-  position: fixed;
-  left: 0;
-  right: 0;
-  height: 50px;
-  line-height: 50px;
+  padding-top: 1em;
+  padding-bottom: 1em;
   background-color: #7AD4E5;
   text-align: center;
   vertical-align: middle;
@@ -121,6 +116,7 @@ a:focus {
   font-family: "Open Sans", sans-serif;
   font-weight: bolder;
   color: #524149;
+  text-transform: none;
 }
 
 #old-conference a {
@@ -149,6 +145,10 @@ a:focus {
   font-family: "Montserrat";
   font-size: 14px;
   background-color: #008266;
+}
+
+.navbar-fixed-top {
+  position: sticky;
 }
 
 .navbar-brand {
@@ -233,7 +233,7 @@ a:focus {
   align-items: center;
   width: 100%;
   height: auto;
-  padding: 100px 0;
+  padding: 75px 0 100px 0;
   text-align: center;
   color: #FFF;
   background: url(/gbg-2023/img/top2022.jpg);
@@ -305,10 +305,10 @@ a:focus {
 
 @media (min-width: 767px) {
   .intro {
-    height: 70%;
-    padding-top: 200px;
+    height: 60vh;
+    padding-top: 150px;
     padding-left: 0;
-    padding-bottom: 0;
+    padding-bottom: 50px;
     padding-right: 0;
   }
   .brand-heading {
