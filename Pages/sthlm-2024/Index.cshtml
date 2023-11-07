@@ -51,7 +51,7 @@
         ("members", false)
     }
     .Where(section => section.Item2)
-    .Select((section, index) => (id: section.Item1, active: section.Item2, even: index % 2 > 0))
+    .Select((section, index) => (id: section.Item1, active: section.Item2))
     .ToDictionary(section => section.id);
 }
 
@@ -82,7 +82,7 @@
 
 @if(activeSections.ContainsKey("previousLinks"))
 {
-<section id="previousLinks" class="@(activeSections["previousLinks"].even ? "even" : "odd")-section content-section text-center">
+<section id="previousLinks" class="content-section text-center">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
@@ -188,7 +188,7 @@
 
 @if(activeSections.ContainsKey("sponsor"))
 {
-<section id="sponsor" class="@(activeSections["sponsor"].even ? "even" : "odd")-section content-section">
+<section id="sponsor" class="content-section">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
@@ -291,7 +291,7 @@
 
 @if (conference.Speakers.Any() && activeSections.ContainsKey("speakers"))
 {
-    <section id="speakers" class="@(activeSections["speakers"].even ? "even" : "odd")-section content-section text-center">
+    <section id="speakers" class="content-section text-center">
         <div class="program-section">
             <div class="container">
                 <div class="row">
@@ -344,7 +344,7 @@
 }
 @if(!conference.Speakers.Any() && activeSections.ContainsKey("speakers"))
 {
-    <section id="speakers" class="@(activeSections["speakers"].even ? "even" : "odd")-section content-section">
+    <section id="speakers" class="content-section">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
@@ -407,7 +407,7 @@
 
 @if(activeSections.ContainsKey("sessions"))
 {
-<section id="sessions" class="@(activeSections["sessions"].even ? "even" : "odd")-section content-section">
+<section id="sessions" class="content-section">
     <div class="program-section">
             <div class="container">
                 <div class="row">
@@ -443,7 +443,7 @@
 
 @if(activeSections.ContainsKey("schedule"))
 {
-<section id="schedule" class="@(activeSections["schedule"].even ? "even" : "odd")-section content-section">
+<section id="schedule" class="content-section">
     <div class="schedule-section">
         <div class="container">
             <div class="row">
@@ -647,7 +647,7 @@
 
 @if(activeSections.ContainsKey("tickets"))
 {
-<section id="tickets" class="@(activeSections["tickets"].even ? "even" : "odd")-section content-section">
+<section id="tickets" class="content-section">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
@@ -724,7 +724,7 @@
 
 @if(activeSections.ContainsKey("contact"))
 {
-<section id="contact" class="@(activeSections["contact"].even ? "even" : "odd")-section content-section contact-section">
+<section id="contact" class="content-section">
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -757,7 +757,7 @@
 
 @if(activeSections.ContainsKey("members"))
 {
-<section id="members" class="content-section @(activeSections["members"].even ? "even" : "odd")-section members-section">
+<section id="members" class="content-section">
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">

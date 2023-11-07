@@ -398,33 +398,16 @@ a:focus {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
-.even-section {
+.content-section:nth-child(even) {
   width: 100%;
-  padding: 50px inherit;
   color: #524149;
   background-color: #FFF7FA;
-  background-size: cover;
-  text-align: left;
 }
 
-.odd-section {
+.content-section:nth-child(odd) {
   width: 100%;
-  padding: 50px inherit;
   color: #524149;
-  /*background: url(../img/downloads-bg.jpg) no-repeat center center scroll;*/
   background-color: #F2FCFF;
-  background-size: cover;
-  text-align: left;
-  padding-top: 0px;
-}
-
-.sponsor-section {
-  width: 100%;
-  padding: 20px inherit;
-  color: #524149;
-  /*background: url(../img/downloads-bg.jpg) no-repeat center center scroll;*/
-  background-color: #FFFFFF;
-  padding-top: 0px;
 }
 
 .content-section > div {
