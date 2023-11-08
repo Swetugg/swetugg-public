@@ -418,7 +418,7 @@
                 <div class="row">
                     <div class="col-lg-10 col-lg-offset-1">
                         <ul class="sessions">
-                            @foreach (var session in conference.Sessions.Where(s => s.Published).OrderBy(s => s.Priority).ThenBy(s => s.Title))
+                            @foreach (var session in conference.Sessions.Where(s => s.Published).OrderBy(s => s.Priority).ThenBy(s => s.Name))
                             {
                                 var sessionSpeakers = session.Speakers;
                                 <li>
@@ -431,7 +431,7 @@
                                             <li><img class="img-circle" src="@imageUrl" /><a href="/@slug/speakers/@speaker.Slug">@speaker.Name</a></li>
                                         }
                                     </ul>
-                                </li>
+                                </li> 
                             }
                             <li><p>More sessions will be published soon!</p></li>
                         </ul>
