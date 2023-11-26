@@ -23,6 +23,7 @@
     }
 
     bool isCfpOpen = false; //New logic will be added on issue #178
+    bool earlyBirdAvailable = false;
 
     int speakersLeft = conference.MinNumberOfSpeakers - conference.Speakers.Count;
 
@@ -666,9 +667,14 @@
                     </div>
                     <!-- End of Ticket Tailor Widget -->
                    <p>
-                        <h3>Early Bird?</h3>
-                        The first batch of tickets that we sell will have a discount of 1000sek and they are called "early bird", but they are limited in number. 
-                        When they are out, they are out! So be quick!    
+                        @if (earlyBirdAvailable)
+                        {
+                            <div>
+                                <h3>Early Bird?</h3>
+                                The first batch of tickets that we sell will have a discount of 1000sek and they are called "early bird", but they are limited in number. 
+                                When they are out, they are out! So be quick!    
+                            </div>
+                        }
                         <h3>Invoice?</h3>
                         Do you wish to buy more than five tickets and/or prefer an invoice?
                         Use the form above and select the option <strong>pay using invoice (more than 5 tickets)</strong> when completing your order.
