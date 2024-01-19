@@ -1,0 +1,54 @@
+.page {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+nav {
+    background-color: var(--color-primary);
+}
+
+nav .container {
+    background-image: url('/img/40_WhiteBG_GraySwetuggOrigamiButterfly.png');
+    background-position: var(--spacing-horizontal) center;
+    background-repeat: no-repeat;
+    /* 50px is due to width of background image */
+    padding-left: calc(var(--spacing-horizontal) * 2 + 50px);
+}
+
+nav a {
+    text-transform: uppercase;
+    display: inline-block;
+    color: #F2FCFF;
+    height: 50px;
+    font-family: "Rock Salt";
+    font-size: 14px;
+    padding: 17px 0;
+}
+
+footer,
+.footer-section {
+    background-color: #F2FCFF;
+}
+
+.footer-rights-section {
+    background-color: #524149;
+    color: #F2FCFF;
+}
+
+.footer-rights-section a {
+    color: #FFF7FA;
+}
+
+footer {
+    padding: 44px 0;
+}
+
+#footerLogo {
+    margin-bottom: 22px;
+}
+
+#footerRights {
+    padding: 22px;
+    font-size: 12px;
+}

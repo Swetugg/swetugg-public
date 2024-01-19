@@ -1,0 +1,97 @@
+@page
+@{
+    var contentGbg = "Content Gbg";
+    var contentSthlm = "Content Sthlm";
+    var website = "Website";
+    var tech = "Tech";
+    var sponsors = "Sponsors";
+    var finance = "Finance";
+    var locationSthlm = "Location Sthlm";
+    var locationGbg = "Location Gbg";
+    var speakers = "Speakers";
+
+    var team = new (string name, string image, string linkedIn, string twitter, IEnumerable<string> responsibilities)[]
+    {
+("Cecilia Wirén",
+"C4E03AQHfFAuaaeA2QA/profile-displayphoto-shrink_200_200/0/1555274870054?e=1707350400&v=beta&t=OWqq5wtVHdEcOoKExSRFNjoDzOvNz1gMJI19qn2VFLo",
+"ceciliasharp", "CeciliaSHARP", new string[]{contentSthlm, website}),
+("Fabian Miiro",
+"C5603AQHGVJxdAf6zVA/profile-displayphoto-shrink_200_200/0/1517477264128?e=1707350400&v=beta&t=7QjyZBE_rUtTxdAMfNo-8WM8LgPjxwZuWxtWYQw6NuA",
+"iloabn", "iloabn", new string[]{}),
+("Andrea Klintelius",
+"D4D35AQHMDiSzBx2-Mw/profile-framedphoto-shrink_200_200/0/1700741498408?e=1706299200&v=beta&t=7UKtZhLTq-BLByL850WWmNIBpdLckbC2iqdYfbqfHJ8",
+"andrea-klintelius-22445b9", "drea1112", new string[]{}),
+("Mattias Karlsson",
+"C5603AQHhVQaGxs4YTw/profile-displayphoto-shrink_200_200/0/1521304813735?e=1707350400&v=beta&t=MyjX6uF1AqJmC6Wk-6EGe5I7NoQzdZH8NW86HVE1eUU",
+"devlead", "devlead", new string[]{}),
+("Jimmy Engström",
+"C5603AQFS4gsPsmgZzQ/profile-displayphoto-shrink_200_200/0/1520864864081?e=1707350400&v=beta&t=ENHPa92wxpXly7r_9hfVkQPvubEA31Wldzd1RXtbQvk",
+"engstromjimmy", "EngstromJimmy", new string[]{}),
+("Rickard öh",
+"C4E03AQEQ7GAd3varvg/profile-displayphoto-shrink_200_200/0/1566821273761?e=1707350400&v=beta&t=_vO3syWTFPcX8mZHCXMRD-TLqdcT8VvlcOGcADhZuzY",
+"rickardoh", "kalasp", new string[]{}),
+("Sebastian Rosengren",
+"C5603AQH6ykyqTec9uQ/profile-displayphoto-shrink_200_200/0/1584707294273?e=1707350400&v=beta&t=7MeXlOTqBSh64-W-S5bpd3cpQz2tWiJ1cWmsRpKf56Q",
+"srosengren", "srrosengren", new string[]{website}),
+("Magnus Timner",
+"D4D03AQFIWGmzkDDjuA/profile-displayphoto-shrink_200_200/0/1700720800042?e=1707350400&v=beta&t=io34xfOLXjmSr5AQg5TJzbvpIGInz7tSPmDHU4eKDmE",
+"magnustimner", "MTimner", new string[]{}),
+("Mattias Lögdberg",
+"D4D03AQH2wwzOmXO8OA/profile-displayphoto-shrink_200_200/0/1686999949960?e=1707350400&v=beta&t=4rjIw2PHku6cvxmseqRrb9TMJriesXtRwRsBYf-KTEw",
+"logdberg", "mlogdberg", new string[]{}),
+("Viktor Karlström",
+"C4D03AQFZzzP3cDZQ_Q/profile-displayphoto-shrink_200_200/0/1652276243149?e=1707350400&v=beta&t=XpPJdDirE0AI2TMeSmyn3pwD32zPtiG3qpDVwFqLGtM",
+"viktor-karlstrom", "karlstroems", new string[]{}),
+("Johan Normén",
+"C4D03AQERLMj6sDykmA/profile-displayphoto-shrink_200_200/0/1517366286122?e=1707350400&v=beta&t=q9-QRnOUIPGfFLnqY-kEndWg62o_9o8puP3chCgy7Ds",
+"johannormen", "Johannormen", new string[]{}),
+("Jim Elfving",
+"C4E03AQF-9z1qe75Y7g/profile-displayphoto-shrink_200_200/0/1642364527126?e=1707350400&v=beta&t=V1sOve08hJ_k2yx-tPjUy-DWmUaoLQ9lqkGWJl5VOJg",
+"jim-elfving-9b545842", "jim_elfving", new string[]{}),
+("Mathias Olausson",
+"C4E03AQFxNzzu3HSbpw/profile-displayphoto-shrink_200_200/0/1516291006595?e=1707350400&v=beta&t=eVJa50oGdGiqGXNtqys27jmb2dEJv8jBHcaiFDaoSCM",
+"mathiasolausson", "molausson", new string[]{}),
+("Manuel Ericstam",
+"D5603AQGwU4vfk7RzKw/profile-displayphoto-shrink_200_200/0/1673989706454?e=1707350400&v=beta&t=uyXdErpQrRD0Q73Xeb0H7jfQsiw6XQQm6TfbL_rrbGw",
+"manuel-ericstam", "EricstamManuel", new string[]{}),
+("Abdirahman Farah",
+"C5603AQHis_BaY1MvCg/profile-displayphoto-shrink_200_200/0/1583769838019?e=1707350400&v=beta&t=gLaQ5658G2Ahy65kEODjqIMre-Ho8I7lTTVMwjljdhU",
+"abdirahman-farah-5b405b87", "", new string[]{})
+    }.OrderBy(member => member.name);
+}
+
+<div class="container">
+    <h1>The team</h1>
+
+    <div class="members">
+        @foreach (var member in team)
+        {
+            <div class="member">
+                <img alt="The profile photo of @member.name" src="https://media.licdn.com/dms/image/@member.image">
+                <div class="info">
+                    <h2>@member.name</h2>
+                    <ul class="social">
+                        @if (!string.IsNullOrWhiteSpace(member.linkedIn))
+                        {
+                            <li><a href="https://www.linkedin.com/in/@member.linkedIn" target="_blank">LinkedIn</a></li>
+                        }
+                        @if (!string.IsNullOrWhiteSpace(member.twitter))
+                        {
+                            <li><a href="https://twitter.com/@member.twitter" target="_blank">@@@member.twitter</a></li>
+                        }
+                    </ul>
+                    <ul class="responsibilities">
+                        @if (member.responsibilities.Any())
+                        {
+                            <li>Responsibilities:</li>
+                        }
+                        @foreach (var responsibility in member.responsibilities.OrderBy(x => x))
+                        {
+                            <li>@responsibility</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        }
+    </div>
+</div>
