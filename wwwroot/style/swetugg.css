@@ -494,8 +494,19 @@ a:focus {
  * Feel free to refactor as appropriate
  */
 .container {
-  width: 100%;
   max-width: var(--width-max);
   margin: 0 auto;
   padding: 0 var(--spacing-horizontal);
+}
+
+@media screen and (min-width: 768px) {
+
+  /*
+   * The goal of this is to get member "cards" on the team page to be a max of 360px
+   * and be centered in the grid on mobile, but have cards next to each other on bigger
+   * screen sizes. There has to be a way of doing this with grid without using this media query
+   */
+  .container {
+    width: 100%;
+  }
 }

@@ -13,6 +13,7 @@
 .member {
     display: grid;
     grid-template-columns: 25% 75%;
+    max-width: 360px;
 }
 
 .member img {
@@ -22,8 +23,9 @@
     border-radius: 50%;
 }
 
-.member h2 {
-    margin-bottom: calc(var(--spacing-horizontal) / 2);
+.member h2,
+.member .responsibilities {
+    margin-bottom: calc(var(--spacing-horizontal) / 4);
 }
 
 .member .info {
@@ -34,6 +36,7 @@
 
 .member .responsibilities {
     font-size: 0.85em;
+    font-family: "Open Sans", sans-serif;
 }
 
 .member ul {
@@ -43,4 +46,9 @@
     padding-left: 0;
     list-style: none;
     margin-bottom: 0;
+}
+
+.social svg {
+    width: 1.25rem;
+    height: 1.25rem;
 }
