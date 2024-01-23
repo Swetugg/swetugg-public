@@ -18,7 +18,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\gbg-2023\img\logos\" />
+    <Folder Include="wwwroot\logos\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Pages\gbg_logos.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Pages\sthlm_logos.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
