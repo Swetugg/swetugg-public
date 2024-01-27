@@ -1,3 +1,4 @@
+@inject IConferenceService conferenceService
 @{
     var fbAppId = ViewData["FacebookAppId"];
     var appInsightsInstrumentationKey = ViewData["InstrumentationKey"];
@@ -77,7 +78,7 @@
     <div class="page">
         <nav>
             <div class="container">
-                <a href="/">Swetugg</a>
+                <a href="/">To @(conferenceService.GetCurrentConferenceMeta()?.Name ?? "Swetugg")</a>
             </div>
         </nav>
 
