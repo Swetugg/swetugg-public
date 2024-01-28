@@ -15,6 +15,7 @@
     var socialMedia = "social media";
     var speakers = "speakers";
     var party = "party";
+    var boardResponsibilities = new string[] { boardMember, boardAlternate, chairman, nominatingCommittee, treasurer };
 
     var team = new (string name, string image, string linkedIn, string twitter, IEnumerable<string> responsibilities)[]
     {
@@ -25,11 +26,20 @@
 "C5603AQHGVJxdAf6zVA/profile-displayphoto-shrink_200_200/0/1517477264128?e=1707350400&v=beta&t=7QjyZBE_rUtTxdAMfNo-8WM8LgPjxwZuWxtWYQw6NuA",
 "iloabn", "iloabn", new string[]{treasurer, tech}),
 ("Andrea Klintelius",
-"D4D35AQHMDiSzBx2-Mw/profile-framedphoto-shrink_200_200/0/1700741498408?e=1706299200&v=beta&t=7UKtZhLTq-BLByL850WWmNIBpdLckbC2iqdYfbqfHJ8",
+"D4D35AQHMDiSzBx2-Mw/profile-framedphoto-shrink_400_400/0/1700741498408?e=1707051600&v=beta&t=CiUgkYTJfiSIFAc8I58S0dX2-Y21l0irFqAXxoivHPE",
 "andrea-klintelius-22445b9", "drea1112", new string[]{boardMember, volunteers}),
 ("Mattias Karlsson",
 "C5603AQHhVQaGxs4YTw/profile-displayphoto-shrink_200_200/0/1521304813735?e=1707350400&v=beta&t=MyjX6uF1AqJmC6Wk-6EGe5I7NoQzdZH8NW86HVE1eUU",
 "devlead", "devlead", new string[]{}),
+("Magnus Sax",
+"C4E03AQE0ACUMI3jL-A/profile-displayphoto-shrink_800_800/0/1517712074316?e=1712188800&v=beta&t=afIybrziTXCCBU0PdNxCLqnIgepoqMKL9vOiKogY-uc",
+"magnus-sax", "Magnus_Sax", new string[]{}),
+("Daniel Hindrikes",
+"C5603AQH0pmEwuoR-5w/profile-displayphoto-shrink_400_400/0/1517574387823?e=1712188800&v=beta&t=4maC70h_TZZDRVoEgbPoeuZxgHssBHV5l1iVX42A27s",
+"daniel-hindrikes", "hindrikes", new string[]{}),
+("Joakim Olesen",
+"D4D03AQEiT-jgSmtGfQ/profile-displayphoto-shrink_400_400/0/1700317788085?e=1712188800&v=beta&t=9KpJUHlqy5eK6FoLRMXJ-ke3doaDDulgv3HzIPxnIlk",
+"joakim-olesen", "", new string[]{}),
 ("Ulrika Bladh",
 "D4D03AQGqVbsfjtzISw/profile-displayphoto-shrink_200_200/0/1694293026391?e=1711584000&v=beta&t=9iT3fV8Ew7Tmzu8o5NgAtDnf_Hx9jC68DySMuA_JVOw",
 "ulrika-bladh", "devlead", new string[]{nominatingCommittee}),
@@ -78,7 +88,8 @@
 ("Abdirahman Farah",
 "C5603AQHis_BaY1MvCg/profile-displayphoto-shrink_200_200/0/1583769838019?e=1707350400&v=beta&t=gLaQ5658G2Ahy65kEODjqIMre-Ho8I7lTTVMwjljdhU",
 "abdirahman-farah-5b405b87", "", new string[]{sponsors})
-    }.OrderBy(member => member.name.Split(' ').Last());
+    }.OrderByDescending(member => member.responsibilities.Any(r => boardResponsibilities.Contains(r)))
+    .ThenBy(member => member.name.Split(' ').Last());
 }
 
 <div class="container">
