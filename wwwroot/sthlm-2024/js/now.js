@@ -15,15 +15,16 @@ nowApp.controller('NowController', function NowController($scope, $http, $interv
         $http.get('now-feed').then(function (response) {
             $scope.slots = response.data;
             for (var n = 0; n < $scope.slots.length; n++) {
-                $scope.slots[n].start = Date.parse($scope.slots[n].start)+(60*60*1000);
-                $scope.slots[n].end = Date.parse($scope.slots[n].end)+(60*60*1000);
+                $scope.slots[n].start = Date.parse($scope.slots[n].start);
+                $scope.slots[n].end = Date.parse($scope.slots[n].end);
             }
             filterSlots();
         })
     };
 
     filterSlots = function () {
-        var now = new Date();
+        // Ugly mod to fix date error onsite
+        var now = new Date()-60000;
 
         var nextSlotIndex = 0;
         var currentSlotIndex = null;
