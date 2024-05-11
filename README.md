@@ -27,7 +27,7 @@ Why are the generated css files commited instead of ignored? This is also subjec
 ### Create the new pages
 1. Copy the `Pages/{slug}` folder of the latest conference (assuming that you want the new page to look like the previous one).
 1. Use the desired slug (the one that you configured for the Conference database row) for the new conference as the name of the copied folder.
-1. Do the same for the `wwwroot/{slug}` folder. Your life will be easier if you pick the folder of the last conference that ran in the same city as the conference you're setting up, as we have different assets (mainly the colors of images and css variables) for different cities.
+1. Do the same for the `wwwroot/{slug}` folder. Your life will be easier if you pick the folder of the last conference that ran in the same city as the conference you're setting up, as we have different assets (mainly the colors of images and css variables) for different cities. But you should then copy over the swetugg.scss file from the last conference (regardless of city), and replace the variables section (tope of the .scss file) with the values from the last conference that ran in the same city as the conference you're setting up (this is a bit of a hassle, we should perhaps extract these into a variables.scss, or try even harder to use css variables)
 
 ### Update the new pages
 Change the following properties of the pages
