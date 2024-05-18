@@ -23,8 +23,7 @@ nowApp.controller('NowController', function NowController($scope, $http, $interv
     };
 
     filterSlots = function () {
-        // Ugly mod to fix date error onsite
-        var now = new Date()-60000;
+        var now = new Date();
 
         var nextSlotIndex = 0;
         var currentSlotIndex = null;

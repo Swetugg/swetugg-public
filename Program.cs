@@ -41,16 +41,16 @@ app.MapGet("/{slug}/now-feed", (string slug, IConferenceService conferenceServic
   var conference = conferenceService.Get(slug);
   return conference?.Slots.Select(s => new
   {
-    Start = s.Start.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffff+01:00"),
-    End = s.End.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffff+01:00"),
+    Start = s.Start.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffff+02:00"),
+    End = s.End.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffff+02:00"),
     s.Title,
     Sessions = s.RoomSlots.Where(rs => rs.AssignedSession != null && rs.AssignedSession.Published).Select(r => new
     {
       Room = conference?.Rooms?.Where(room => room.Id == r.RoomId).FirstOrDefault()?.Name,
       r.AssignedSession?.Name,
       r.AssignedSession?.Description,
-      Start = r.Start?.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffff+01:00"),
-      End = r.End?.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffff+01:00"),
+      Start = r.Start?.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffff+02:00"),
+      End = r.End?.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffff+02:00"),
       Speakers = r.AssignedSession?.Speakers.Select(speaker => new
       {
         speaker.Name,
