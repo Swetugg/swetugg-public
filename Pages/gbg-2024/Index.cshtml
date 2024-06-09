@@ -23,7 +23,7 @@
     }
 
     bool isCfpOpen = true; //New logic will be added on issue #178
-    bool earlyBirdAvailable = false;
+    bool earlyBirdAvailable = true;
 
     int speakersLeft = conference.MinNumberOfSpeakers - conference.Speakers.Count;
 
@@ -45,7 +45,7 @@
         ("previousLinks", true),
         ("sponsor", true),
         ("speakers", true),
-        ("sessions", false),
+        ("sessions", true),
         ("schedule", false),
         ("tickets", true),
         ("contact", true),
@@ -205,8 +205,8 @@
                         Your organization can get in touch with hundreds of great software developers by becoming an exhibitor or a digital sponsor. It's an amazing opportunity!
                     </p>
                     <p>
-                        <a href="mailto:sponsors@swetugg.se">Questions about sponsoring: sponsors@swetugg.se</a>
-                        @* <a href="/@slug/sponsorship" class="btn btn-default btn-lg">See our sponsorship packages</a> *@
+                        @* <a href="mailto:sponsors@swetugg.se">Questions about sponsoring: sponsors@swetugg.se</a> *@
+                        <a href="/@slug/sponsorship" class="btn btn-default btn-lg">Read about our sponsorship packages</a>
                     </p>
                 </div>
             </div>
@@ -666,8 +666,8 @@
                 {
                     <!-- Ticket Tailor Widget. Paste this into your website where you want the widget to appear. Do not change the code or the widget may not work properly. -->
                     <div class="tt-widget">
-                        <div class="tt-widget-fallback"><p><a href="https://www.tickettailor.com/checkout/new-session/id/3210865/chk/330b/?ref=swetugg-site" target="_blank">Click here to buy tickets</a><br /></p></div>
-                        <script src="https://cdn.tickettailor.com/js/widgets/min/widget.js" data-url="https://www.tickettailor.com/checkout/new-session/id/3210865/chk/330b/?ref=swetugg-site" data-type="inline" data-inline-minimal="true" data-inline-show-logo="false" data-inline-bg-fill="false" data-inline-inherit-ref-from-url-param="" data-inline-ref=""></script>
+                            <div class="tt-widget-fallback"><p><a href="https://www.tickettailor.com/checkout/new-session/id/4268885/chk/97eb/" target="_blank">Click here to buy tickets</a><br /></p></div>
+                            <script src="https://cdn.tickettailor.com/js/widgets/min/widget.js" data-url="https://www.tickettailor.com/checkout/new-session/id/4268885/chk/97eb/" data-type="inline" data-inline-minimal="true" data-inline-show-logo="false" data-inline-bg-fill="false" data-inline-inherit-ref-from-url-param="" data-inline-ref=""></script>
                     </div>
                     <!-- End of Ticket Tailor Widget -->
                    <p>
@@ -675,15 +675,15 @@
                         {
                             <div>
                                 <h3>Early Bird?</h3>
-                                The first batch of tickets that we sell will have a discount of 1000sek and they are called "early bird", but they are limited in number. 
-                                When they are out, they are out! So be quick!    
-                            </div>
+                                The first batch of tickets that we sell will have a discount and they are called "early bird", but they are limited in number.
+                                    When they are out, they are out! So be quick! (if the are not listed, they are out)
+                                </div>
                         }
                         <h3>Invoice?</h3>
                         <p>
                             Do you wish to buy more than five tickets and/or prefer an invoice?
                             Use the form above and select the option <strong>pay using invoice (more than 5 tickets)</strong> when completing your order.
-                            For 5 tickets or less we charge an extra fee of 100kr for invoices.
+                            For 5 tickets or less we charge an extra fee of 200kr for invoices.
                         </p>
                         
                         <h3>VAT and Swetugg</h3>
@@ -698,7 +698,7 @@
                 else
                 {
                     <p>
-                        You can can start buying tickets in the beginning of June! Come back later for exact date to not miss out on the early bird offer.
+                        You can can start buying tickets on Monday 10th of June at 10:00! Don't missout on the early bird offer.
                     </p>
                     @*<p>
                 Tickets for Swetugg 2023 have sold out. If we are able to open sales again, we will announce it on <a href="https://twitter.com/swetugg">Twitter</a> and <a href="https://facebook.com/swetugg">Facebook</a>, so make sure to follow us there!
