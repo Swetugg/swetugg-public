@@ -20,4 +20,4 @@ We're currently using Sass to build our CSS (subject to change). If you're using
 Why are the generated css files commited instead of ignored? This is also subject to change, the goal is to have them either generated as part of the build pipeline, or have them generated on demand through the hosting pipeline.
 
 ## Test site in Azure
-We have QA slot in Azure for the site, just run the github action "" on your branch and it will be deployed to the QA slot. The url is https://swetugg-qa.azurewebsites.net/{conference slug}.
+We have QA slot in Azure for the site, when running merging to main it will deploy to that slot, or when you run the github action "Build and deploy Swetugg public web app to QA Web App" on your branch. The url is http://app-swetugg-prod-web-qa.azurewebsites.net/{conference slug}.

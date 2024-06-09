@@ -86,11 +86,11 @@
     </script>
 
     <nav class="navbar navbar-custom navbar-fixed-top @(transformNavBar ? "transform": "top-nav-collapse" )"
-        role="navigation">
+         role="navigation">
         @if (currentConferenceMeta != null)
         {
-            <div id="old-conference"><span class="part-one">This page is about @conference.Name. </span><span
-                    class="part-two">Go to <a href="/@currentConferenceMeta.Slug">@currentConferenceMeta.Name.</a></span>
+            <div id="old-conference">
+                <span class="part-one">This page is about @conference.Name. </span><span class="part-two">Go to <a href="/@currentConferenceMeta.Slug">@currentConferenceMeta.Name.</a></span>
             </div>
         }
         <div class="container">
@@ -100,7 +100,7 @@
                 </button>
                 <a class="navbar-brand" href="/@slug#page-top" data-target="#page-top">
                     <img src="/@slug/img/40_WhiteBG_GraySwetuggOrigamiButterfly.png" width="50" height="41"
-                        class="pull-left" />
+                         class="pull-left" />
                     Swetugg
                 </a>
             </div>
@@ -118,15 +118,15 @@
                     <li class="page-scroll">
                         <a href="/@slug#speakers" data-target="#speakers">Speakers</a>
                     </li>
-                    <!-- <li class="page-scroll">
+                    <li class="page-scroll">
                         <a href="/@slug#sessions" data-target="#sessions">Sessions</a>
-                    </li> -->
+                    </li>
                     @* <li class="page-scroll">
                     <a href="/@slug#schedule" data-target="#schedule">Schedule</a>
                     </li> *@
-                    @* <li class="page-scroll">
+                    <li class="page-scroll">
                     <a href="/@slug#tickets" data-target="#tickets">Tickets</a>
-                    </li> *@
+                    </li>
                     <li class="page-scroll">
                         <a href="/@slug/codeofconduct">Code of Conduct</a>
                     </li>
@@ -147,19 +147,29 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-8">
-                    <a href="https://www.meetup.com/Swenug-Goteborg/" target="blank"><img
-                            src="/@slug/img/swenug.png" /></a>
+                    <a href="https://www.meetup.com/Swenug-Goteborg/" target="blank">
+                        <img src="/@slug/img/swenug.png" />
+                    </a>
                 </div>
                 <div class="col-sm-4">
                     <ul class="socialNetwork pull-right">
-                        <li><a title="" class="tips" href="https://www.facebook.com/Swetugg"
-                                data-original-title="follow us on Facebook"><i
-                                    class="icon-facebook-1 iconRounded"></i></a></li>
-                        <li><a title="" class="tips" href="https://twitter.com/swetugg" target="_blank"
-                                data-original-title="follow us on Twitter"><i
-                                    class="icon-twitter-bird iconRounded"></i></a></li>
-                        <li><a title="" class="tips" href="#" data-original-title="follow us on Google+"><i
-                                    class="icon-gplus-1 iconRounded"></i></a></li>
+                        <li>
+                            <a title="" class="tips" href="https://www.facebook.com/Swetugg"
+                               data-original-title="follow us on Facebook">
+                                <i class="icon-facebook-1 iconRounded"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a title="" class="tips" href="https://twitter.com/swetugg" target="_blank"
+                               data-original-title="follow us on Twitter">
+                                <i class="icon-twitter-bird iconRounded"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a title="" class="tips" href="#" data-original-title="follow us on Google+">
+                                <i class="icon-gplus-1 iconRounded"></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
