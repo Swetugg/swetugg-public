@@ -23,7 +23,7 @@
     }
 
     bool isCfpOpen = true; //New logic will be added on issue #178
-    bool earlyBirdAvailable = true;
+    bool earlyBirdAvailable = false;
 
     int speakersLeft = conference.MinNumberOfSpeakers - conference.Speakers.Count;
 
@@ -423,20 +423,20 @@
                 <div class="row">
                     <div class="col-lg-10 col-lg-offset-1">
                         <ul class="sessions">
-                            @foreach (var session in conference.Sessions.Where(s => s.Published).OrderBy(s => s.Priority).ThenBy(s => s.Name))
+                            @foreach (var session in conference.Sessions.Where(s => s.Published && s.Speakers != null).OrderBy(s => s.Priority).ThenBy(s => s.Name))
                             {
-                                var sessionSpeakers = session.Speakers;
-                                <li>
-                                    <a href="/@slug/speakers/@sessionSpeakers.First().Slug#@session.Slug">@session.Name</a>
-                                    <ul class="sessions-speakers">
-                                        @foreach (var speaker in sessionSpeakers)
-                                        {
-                                            string imageUrl =
-                                                speaker.SpeakerImages.FirstOrDefault(i => i.ImageType.Slug == "thumb")?.ImageUrl ?? "";
-                                            <li><img class="img-circle" src="@imageUrl" /><a href="/@slug/speakers/@speaker.Slug">@speaker.Name</a></li>
-                                        }
-                                    </ul>
-                                </li> 
+                                    var sessionSpeakers = session.Speakers;
+                                    <li>
+                                        <a href="/@slug/speakers/@sessionSpeakers.First().Slug#@session.Slug">@session.Name</a>
+                                        <ul class="sessions-speakers">
+                                            @foreach (var speaker in sessionSpeakers)
+                                            {
+                                                string imageUrl =
+                                                    speaker.SpeakerImages.FirstOrDefault(i => i.ImageType.Slug == "thumb")?.ImageUrl ?? "";
+                                                <li><img class="img-circle" src="@imageUrl" /><a href="/@slug/speakers/@speaker.Slug">@speaker.Name</a></li>
+                                            }
+                                        </ul> 
+                                    </li> 
                             }
                             <li><p>More sessions will be published soon!</p></li>
                         </ul>
