@@ -1,63 +1,95 @@
 @page
 @{
-    var contentGbg = "Content Gbg";
-    var contentSthlm = "Content Sthlm";
-    var website = "Website";
-    var tech = "Tech";
-    var sponsors = "Sponsors";
-    var finance = "Finance";
-    var locationSthlm = "Location Sthlm";
-    var locationGbg = "Location Gbg";
-    var speakers = "Speakers";
+    var boardMember = "board member";
+    var PLGbg = "PL gbg";
+    var sponsors = "sponsors";
+    var website = "website";
+    var PLSthlm = "PL sthlm";
+    var content = "content";
+    var chairman = "chairman";
+    var volunteers = "volunteers";
+    var boardAlternate = "board alternate";
+    var nominatingCommittee = "nominating committee";
+    var treasurer = "treasurer";
+    var tech = "tech";
+    var socialMedia = "social media";
+    var speakers = "speakers";
+    var party = "party";
+    var boardResponsibilities = new string[] { boardMember, boardAlternate, chairman, nominatingCommittee, treasurer };
 
     var team = new (string name, string image, string linkedIn, string twitter, IEnumerable<string> responsibilities)[]
     {
 ("Cecilia Wirén",
-"C4E03AQHfFAuaaeA2QA/profile-displayphoto-shrink_200_200/0/1555274870054?e=1707350400&v=beta&t=OWqq5wtVHdEcOoKExSRFNjoDzOvNz1gMJI19qn2VFLo",
-"ceciliasharp", "CeciliaSHARP", new string[]{contentSthlm, website}),
+"https://media.licdn.com/dms/image/C4E03AQHfFAuaaeA2QA/profile-displayphoto-shrink_200_200/0/1555274870054?e=1723680000&v=beta&t=05dZyT7iJkRk3xFpqnHNp3dMfyhS-2XxUw111mNKwl0",
+"ceciliasharp", null, new string[]{boardMember, PLGbg, sponsors, website}),
 ("Fabian Miiro",
-"C5603AQHGVJxdAf6zVA/profile-displayphoto-shrink_200_200/0/1517477264128?e=1707350400&v=beta&t=7QjyZBE_rUtTxdAMfNo-8WM8LgPjxwZuWxtWYQw6NuA",
-"iloabn", "iloabn", new string[]{}),
+"https://media.licdn.com/dms/image/C5603AQHGVJxdAf6zVA/profile-displayphoto-shrink_200_200/0/1517477264128?e=1723680000&v=beta&t=DA8AC5n9BijYz8V2PUoUdRH3Cw9sKj1L1B8CV8n9ed4",
+"iloabn", null, new string[]{treasurer, tech}),
 ("Andrea Klintelius",
-"D4D35AQHMDiSzBx2-Mw/profile-framedphoto-shrink_200_200/0/1700741498408?e=1706299200&v=beta&t=7UKtZhLTq-BLByL850WWmNIBpdLckbC2iqdYfbqfHJ8",
-"andrea-klintelius-22445b9", "drea1112", new string[]{}),
+"/img/team/andrea.jpeg",
+"andrea-klintelius-22445b9", "drean1112", new string[]{volunteers}),
 ("Mattias Karlsson",
-"C5603AQHhVQaGxs4YTw/profile-displayphoto-shrink_200_200/0/1521304813735?e=1707350400&v=beta&t=MyjX6uF1AqJmC6Wk-6EGe5I7NoQzdZH8NW86HVE1eUU",
-"devlead", "devlead", new string[]{}),
+"https://media.licdn.com/dms/image/C5603AQHhVQaGxs4YTw/profile-displayphoto-shrink_200_200/0/1521304813735?e=1723680000&v=beta&t=P2d4ry7A3y3n9lMA8ubAHNHl-FzcVsetPR1aQDcooQU",
+"devlead", "devlead", new string[]{content}),
+("Magnus Sax",
+"https://media.licdn.com/dms/image/C4E03AQE0ACUMI3jL-A/profile-displayphoto-shrink_800_800/0/1517712074316?e=1723680000&v=beta&t=Yp0uryuaU-ePmqY-4HwgmTuv9EN93zbLNNWIjUnKNeg",
+"magnus-sax", "Magnus_Sax", new string[]{}),
+("Daniel Hindrikes",
+"https://media.licdn.com/dms/image/D4D03AQE-nwtKjFWNtA/profile-displayphoto-shrink_200_200/0/1710502141419?e=1723680000&v=beta&t=DgeRYe4m4hSUjR1ICcuB2KDBiRZn7gW5PoWlfhSbSjI",
+"daniel-hindrikes", "hindrikes", new string[]{}),
+("Joakim Olesen",
+"https://media.licdn.com/dms/image/D4D03AQEiT-jgSmtGfQ/profile-displayphoto-shrink_200_200/0/1700317788085?e=1723680000&v=beta&t=11vLJObc1PmplzRLG44hRsHp28Imd-1koxnXiq6w8zY",
+"joakim-olesen", "", new string[]{}),
+("Ulrika Bladh",
+"https://media.licdn.com/dms/image/D4D03AQGqVbsfjtzISw/profile-displayphoto-shrink_200_200/0/1694293026391?e=1723680000&v=beta&t=9L9iy_WienxcD6zAUC-PtZ7n240L3iaRDCHE6GpnQBA",
+"ulrika-bladh", "devlead", new string[]{}),
+("Anders Ljusberg",
+"https://media.licdn.com/dms/image/D4D03AQE5oa_d8Tq6ZQ/profile-displayphoto-shrink_200_200/0/1678289367667?e=1723680000&v=beta&t=_wD7xDdJm-P9lAwd6lOaBdEUcV07E-MOWMBnocqqq3w",
+"ljusberg", "CodingInsomnia", new string[]{nominatingCommittee}),
 ("Jimmy Engström",
-"C5603AQFS4gsPsmgZzQ/profile-displayphoto-shrink_200_200/0/1520864864081?e=1707350400&v=beta&t=ENHPa92wxpXly7r_9hfVkQPvubEA31Wldzd1RXtbQvk",
-"engstromjimmy", "EngstromJimmy", new string[]{}),
+"https://media.licdn.com/dms/image/C5603AQFS4gsPsmgZzQ/profile-displayphoto-shrink_200_200/0/1520864864081?e=1723680000&v=beta&t=dRQJGT0YhwnlpTfom2edASDDIqmS57MEPdJPpR7h718",
+"engstromjimmy", "EngstromJimmy", new string[]{content}),
+("Jessica Engström",
+"https://media.licdn.com/dms/image/D4D03AQE68gwKZPzzWg/profile-displayphoto-shrink_200_200/0/1688657824075?e=1723680000&v=beta&t=uYm4_KnaXb18kvBSJTO8--WXdHW74kTF6S7VffzU3Nk",
+"engstromjess", "EngstromJess", new string[]{boardMember, PLSthlm, content}),
 ("Rickard öh",
-"C4E03AQEQ7GAd3varvg/profile-displayphoto-shrink_200_200/0/1566821273761?e=1707350400&v=beta&t=_vO3syWTFPcX8mZHCXMRD-TLqdcT8VvlcOGcADhZuzY",
-"rickardoh", "kalasp", new string[]{}),
+"https://media.licdn.com/dms/image/C4E03AQEQ7GAd3varvg/profile-displayphoto-shrink_200_200/0/1566821273761?e=1723680000&v=beta&t=NGR37IHtZnrbp8tCg7NweIJaN3thrymLGmBSW1iDlKE",
+"rickardoh", "kalasp", new string[]{content}),
 ("Sebastian Rosengren",
-"C5603AQH6ykyqTec9uQ/profile-displayphoto-shrink_200_200/0/1584707294273?e=1707350400&v=beta&t=7MeXlOTqBSh64-W-S5bpd3cpQz2tWiJ1cWmsRpKf56Q",
-"srosengren", "srrosengren", new string[]{website}),
+"https://media.licdn.com/dms/image/C5603AQH6ykyqTec9uQ/profile-displayphoto-shrink_200_200/0/1584707294273?e=1723680000&v=beta&t=T6ZYRW341-qv5BWv5BKHXNBkRYby_z2C5Cj8yu970ZU",
+"srosengren", "srrosengren", new string[]{}),
 ("Magnus Timner",
-"D4D03AQFIWGmzkDDjuA/profile-displayphoto-shrink_200_200/0/1700720800042?e=1707350400&v=beta&t=io34xfOLXjmSr5AQg5TJzbvpIGInz7tSPmDHU4eKDmE",
-"magnustimner", "MTimner", new string[]{}),
+"https://media.licdn.com/dms/image/D4D03AQFIWGmzkDDjuA/profile-displayphoto-shrink_200_200/0/1700720800042?e=1723680000&v=beta&t=EM52zkC6NtPQ9-XuHhZEne2L0SYmty97NQUVDChMu1A",
+"magnustimner", "MTimner", new string[]{speakers}),
 ("Mattias Lögdberg",
-"D4D03AQH2wwzOmXO8OA/profile-displayphoto-shrink_200_200/0/1686999949960?e=1707350400&v=beta&t=4rjIw2PHku6cvxmseqRrb9TMJriesXtRwRsBYf-KTEw",
-"logdberg", "mlogdberg", new string[]{}),
+"https://media.licdn.com/dms/image/D4D03AQH2wwzOmXO8OA/profile-displayphoto-shrink_200_200/0/1686999949960?e=1723680000&v=beta&t=CokEYgVTTbA9QU0rLrXYqKR8Rk8WNIoxiZ2-FI7vyWo",
+"logdberg", "mlogdberg", new string[]{content}),
 ("Viktor Karlström",
-"C4D03AQFZzzP3cDZQ_Q/profile-displayphoto-shrink_200_200/0/1652276243149?e=1707350400&v=beta&t=XpPJdDirE0AI2TMeSmyn3pwD32zPtiG3qpDVwFqLGtM",
-"viktor-karlstrom", "karlstroems", new string[]{}),
+"https://media.licdn.com/dms/image/C4D03AQFZzzP3cDZQ_Q/profile-displayphoto-shrink_200_200/0/1652276243149?e=1723680000&v=beta&t=eckBwMfFm_LrQZai5MxnsWzpP1g63vPLNgoWqSzrGic",
+"viktor-karlstrom", "karlstroems", new string[]{socialMedia}),
 ("Johan Normén",
-"C4D03AQERLMj6sDykmA/profile-displayphoto-shrink_200_200/0/1517366286122?e=1707350400&v=beta&t=q9-QRnOUIPGfFLnqY-kEndWg62o_9o8puP3chCgy7Ds",
-"johannormen", "Johannormen", new string[]{}),
+"https://media.licdn.com/dms/image/C4D03AQERLMj6sDykmA/profile-displayphoto-shrink_200_200/0/1517366286122?e=1723680000&v=beta&t=_pwIkMQGaTP3PkNaN885RlPm0f3obtc5lUinleijm34",
+"johannormen", "Johannormen", new string[]{boardAlternate}),
 ("Jim Elfving",
-"C4E03AQF-9z1qe75Y7g/profile-displayphoto-shrink_200_200/0/1642364527126?e=1707350400&v=beta&t=V1sOve08hJ_k2yx-tPjUy-DWmUaoLQ9lqkGWJl5VOJg",
-"jim-elfving-9b545842", "jim_elfving", new string[]{}),
+"https://media.licdn.com/dms/image/C4E03AQF-9z1qe75Y7g/profile-displayphoto-shrink_200_200/0/1642364527126?e=1723680000&v=beta&t=g5Lfe-2T8PNNE35VVwHwaprSm6iy3iRD6TIgp--fw7c",
+"jim-elfving-9b545842", "jim_elfving", new string[]{tech}),
+("Sigge Sax",
+"https://media.licdn.com/dms/image/D4D03AQEmDfMh7quwtQ/profile-displayphoto-shrink_200_200/0/1707307107249?e=1723680000&v=beta&t=P5rP_KjITB4UeGmzSBDvqbwmVx3M6VIIL0VxmZYzUXs",
+"sigge-sax-187ab0128", "SiggeSax", new string[]{chairman}),
 ("Mathias Olausson",
-"C4E03AQFxNzzu3HSbpw/profile-displayphoto-shrink_200_200/0/1516291006595?e=1707350400&v=beta&t=eVJa50oGdGiqGXNtqys27jmb2dEJv8jBHcaiFDaoSCM",
-"mathiasolausson", "molausson", new string[]{}),
+"https://media.licdn.com/dms/image/C4E03AQFxNzzu3HSbpw/profile-displayphoto-shrink_200_200/0/1516291006595?e=1723680000&v=beta&t=Bjeq1WQ0omkCO4AsShMd3vx2xya5NwbHY7hCg_ffmAY",
+"mathiasolausson", "molausson", new string[]{nominatingCommittee, speakers, content}),
 ("Manuel Ericstam",
-"D5603AQGwU4vfk7RzKw/profile-displayphoto-shrink_200_200/0/1673989706454?e=1707350400&v=beta&t=uyXdErpQrRD0Q73Xeb0H7jfQsiw6XQQm6TfbL_rrbGw",
-"manuel-ericstam", "EricstamManuel", new string[]{}),
-("Abdirahman Farah",
-"C5603AQHis_BaY1MvCg/profile-displayphoto-shrink_200_200/0/1583769838019?e=1707350400&v=beta&t=gLaQ5658G2Ahy65kEODjqIMre-Ho8I7lTTVMwjljdhU",
-"abdirahman-farah-5b405b87", "", new string[]{})
-    }.OrderBy(member => member.name);
+"https://media.licdn.com/dms/image/D5603AQGwU4vfk7RzKw/profile-displayphoto-shrink_200_200/0/1673989706454?e=1723680000&v=beta&t=bC4YPPiQeo5bENSqQB9KyORq7YZD0hQPDk38lSxkAlA",
+"manuel-ericstam", "EricstamManuel", new string[]{boardMember, tech, content}),
+("Eric Johansson",
+"https://media.licdn.com/dms/image/D4E03AQF3X6Xp-FdCuA/profile-displayphoto-shrink_200_200/0/1692287404519?e=1723680000&v=beta&t=xGVAgy1s2-Tk_Mh8RRFiW_KqX78IMOVB9KmbePcf6-I",
+"eric-r-johansson", "ericjohansson", new string[]{content}),
+("Abdi Farah",
+"https://media.licdn.com/dms/image/C5603AQHis_BaY1MvCg/profile-displayphoto-shrink_200_200/0/1583769838019?e=1723680000&v=beta&t=uGAhM7xJIbrRWSk7GiXdiLkuZeUCQRDCkiJNVR9BVS8",
+"abdi92", "", new string[]{sponsors})
+    }.OrderBy(member => member.responsibilities.Any(r => boardResponsibilities.Contains(r)) ? 1 : 2)
+    .ThenBy(member => member.name);
 }
 
 <div class="container">
@@ -67,20 +99,22 @@
         @foreach (var member in team)
         {
             <div class="member">
-                <img alt="The profile photo of @member.name" src="https://media.licdn.com/dms/image/@member.image">
+                <img alt="The profile photo of @member.name" src="@member.image">
                 <div class="info">
                     <h2>@member.name</h2>
-                    <p class="responsibilities">@String.Join(", ", member.responsibilities.OrderBy(x => x))</p>
+                    <p class="responsibilities">
+                        @(member.responsibilities.Any() ? String.Join(", ",
+                            member.responsibilities.OrderBy(x => x)) : "member")
+                    </p>
                     <ul class="social">
                         @if (!string.IsNullOrWhiteSpace(member.linkedIn))
                         {
                             <li>
                                 <a href="https://www.linkedin.com/in/@member.linkedIn"
-                                    aria-label="LinkedIn profile of @member.name" target="_blank">
+                                   aria-label="LinkedIn profile of @member.name" target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                        class="bi bi-linkedin" viewBox="0 0 16 16">
-                                        <path
-                                            d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                                         class="bi bi-linkedin" viewBox="0 0 16 16">
+                                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
                                     </svg>
                                 </a>
                             </li>
@@ -89,11 +123,10 @@
                         {
                             <li>
                                 <a href="https://twitter.com/@member.twitter" aria-label="Twitter profile of @member.name"
-                                    target="_blank">
+                                   target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                        class="bi bi-twitter" viewBox="0 0 16 16">
-                                        <path
-                                            d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15" />
+                                         class="bi bi-twitter-x" viewBox="0 0 16 16">
+                                        <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
                                     </svg>
                                 </a>
                             </li>
