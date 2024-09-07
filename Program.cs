@@ -37,20 +37,20 @@ app.MapGet("/", async context =>
 
 app.MapGet("/{slug}/now-feed", (string slug, IConferenceService conferenceService) =>
 {
-  // TODO: Fix timezones
   var conference = conferenceService.Get(slug);
+
   return conference?.Slots.Select(s => new
   {
-    Start = s.Start.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffff+02:00"),
-    End = s.End.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffff+02:00"),
+    Start = s.Start.ToConferenceDate(conference).ToString("o"),
+    End = s.End.ToConferenceDate(conference).ToString("o"),
     s.Title,
     Sessions = s.RoomSlots.Where(rs => rs.AssignedSession != null && rs.AssignedSession.Published).Select(r => new
     {
       Room = conference?.Rooms?.Where(room => room.Id == r.RoomId).FirstOrDefault()?.Name,
       r.AssignedSession?.Name,
       r.AssignedSession?.Description,
-      Start = r.Start?.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffff+02:00"),
-      End = r.End?.ToString("yyyy-MM-ddTHH\\:mm\\:ss.fffffff+02:00"),
+      Start = r.Start?.ToConferenceDate(conference).ToString("o"),
+      End = r.End?.ToConferenceDate(conference).ToString("o"),
       Speakers = r.AssignedSession?.Speakers.Select(speaker => new
       {
         speaker.Name,
