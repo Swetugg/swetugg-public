@@ -46,7 +46,7 @@
         ("sponsor", true),
         ("speakers", true),
         ("sessions", false),
-        ("schedule", false),
+        ("schedule", true),
         ("tickets", true),
         ("contact", true),
         ("members", false)
@@ -67,7 +67,7 @@
                     <h1 class="brand-heading">Swetugg <small>Stockholm</small></h1>
                     <p class="intro-text">
                         by .NET developers, for .NET developers, <br />
-                        4-5 February 2025
+                        7-8 February 2024
                     </p>
                     <div class="intro-buttons">
                         @if (conferenceOngoing)
@@ -159,12 +159,6 @@
                         </li>
                         <li>
                             <a href="/gbg-2023" class="btn btn-default btn-lg">Göteborg 2023</a>
-                        </li>
-                        <li>
-                            <a href="/sthlm-2024/" class="btn btn-default btn-lg">Stockholm 2024</a>
-                        </li>
-                        <li>
-                            <a href="/gbg-2024" class="btn btn-default btn-lg">Göteborg 2024</a>
                         </li>
                     </ul>
                 </div>
@@ -372,20 +366,20 @@
             }
             else
             {
-
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
-                        <p>
-                            we will open up our call for speakers shortly. if you want to be added to our speaker mailing list or have any questions regarding
-                            speaking at swetugg, don't hesitate to send us an email at <a href="mailto:speaker@swetugg.se">speaker@swetugg.se</a>.
-                        </p>
-                    </div>
-                </div>
-
+                @*
+        <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+        <p>
+        We will open up our call for speakers shortly. If you want to be added to our speaker mailing list or have any questions regarding
+        speaking at Swetugg, don't hesitate to send us an email at <a href="mailto:speak@swetugg.se">speak@swetugg.se</a>.
+        </p>
+        </div>
+        </div>
+        *@
                 @*<div class="row">
         <div class="col-md-10 col-md-offset-1">
         <p>
-        Our Call for Speakers for Swetugg Stockholm 2024 has ended.
+        Our Call for Speakers for Swetugg Göteborg 2023 has ended.
         </p>
         <p>
         <em>Help, I missed the Call for Speakers!</em><br />
@@ -777,6 +771,108 @@
     </section>
 }
 
+@if (activeSections.ContainsKey("members"))
+{
+    <section id="members" class="content-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <h2>
+                        The Team
+                    </h2>
+                    <div class="member">
+                        <div class="member-name">Cecilia Wirén</div>
+                        <div class="member-twitter">
+                            <a href="https://twitter.com/CeciliaSHARP">@@CeciliaSHARP</a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Fabian Miiro</div>
+                        <div class="member-twitter">
+                            <a href="https://twitter.com/iloabn">@@iloabn</a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Andrea Klintelius</div>
+                        <div class="member-twitter">
+                            <a href="https://twitter.com/drea1112">@@drea1112</a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Mattias Karlsson</div>
+                        <div class="member-twitter">
+                            <a href="https://twitter.com/devlead">@@devlead</a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Jimmy Engström</div>
+                        <div class="member-twitter">
+                            <a href="https://twitter.com/EngstromJimmy">@@EngstromJimmy</a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Rickard öh</div>
+                        <div class="member-twitter">
+                            <a href="https://twitter.com/kalasp">@@kalasp</a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Sebastian Rosengren</div>
+                        <div class="member-twitter">
+                            <a href="https://twitter.com/srrosengren">@@srrosengren</a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Magnus Timner</div>
+                        <div class="member-twitter">
+                            <a href="https://twitter.com/MTimner">@@MTimner</a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Mattias Lögdberg</div>
+                        <div class="member-twitter">
+                            <a href="https://twitter.com/mlogdberg">@@mlogdberg</a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Viktor Karlström</div>
+                        <div class="member-twitter">
+                            <a href="https://twitter.com/karlstroems">@@karlstroems</a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Johan Normén</div>
+                        <div class="member-twitter">
+                            <a href="https://twitter.com/Johannormen">@@Johannormen</a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Jim Elfving</div>
+                        <div class="member-twitter">
+                            <a href="https://twitter.com/jim_elfving">@@jim_elfving</a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Mathias Olausson</div>
+                        <div class="member-twitter">
+                            <a href="https://twitter.com/molausson">@@molausson</a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Manuel Ericstam</div>
+                        <div class="member-twitter">
+                            <a href="https://twitter.com/EricstamManuel">@@EricstamManuel</a>
+                        </div>
+                    </div>
+                    <div class="member">
+                        <div class="member-name">Abdirahman Farah</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+}
 
 @*<div id="map"></div>*@
 
