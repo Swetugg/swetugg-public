@@ -9,7 +9,7 @@
     if (conference == null)
         throw new Exception("Conference not found in database");
 
-    var currentConferenceMeta = conference.End < DateTime.UtcNow ? conferenceService.GetCurrentConferenceMeta() : null;
+    var currentConferenceMeta = conferenceService.GetCurrentConferenceMeta();
 }
 <!DOCTYPE html>
 <html lang="en">
