@@ -39,7 +39,7 @@ public class ConferenceService : IConferenceService
 
     public CurrentConferenceMeta? GetCurrentConferenceMeta() =>
         ReadThroughCache("conference-current", () => _context.Conferences
-            .Where(c => c.End > DateTime.UtcNow)
+            .Where(c => c.HighlightDate <= DateTime.UtcNow.Date)
             .OrderBy(c => c.End)
             .Select(c => new CurrentConferenceMeta { Name = c.Name, Slug = c.Slug })
             .FirstOrDefault()
