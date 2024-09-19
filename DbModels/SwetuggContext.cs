@@ -55,6 +55,7 @@ public partial class SwetuggContext : DbContext
             entity.Property(e => e.Name).HasMaxLength(250);
             entity.Property(e => e.Slug).HasMaxLength(250);
             entity.Property(e => e.Start).HasColumnType("datetime");
+            entity.Property(e => e.HighlightDate).HasColumnType("datetime");
         });
 
         modelBuilder.Entity<ImageType>(entity =>

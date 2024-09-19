@@ -16,7 +16,9 @@ public partial class Conference
     public DateTime? Start { get; set; }
 
     public DateTime? End { get; set; }
-    
+
+    public DateTime? HighlightDate { get; set; }
+
     public int MinNumberOfSpeakers { get; set; }
 
     public virtual ICollection<ImageType> ImageTypes { get; } = new List<ImageType>();

@@ -18,7 +18,7 @@ public class ConferenceService : IConferenceService
     public Conference? Get(string slug) =>
         ReadThroughCache<Conference?>($"conference-{slug.ToLower()}", () => _context.Conferences
             .AsSplitQuery()
-            .Include(c => c.Rooms)
+            .Include(c => c.Rooms.OrderBy(c => c.Priority))
             .Include(c => c.Sessions.Where(s => s.Published))
                 .ThenInclude(c => c.Speakers.Where(s => s.Published))
                     .ThenInclude(s => s.SpeakerImages)
@@ -39,7 +39,7 @@ public class ConferenceService : IConferenceService
 
     public CurrentConferenceMeta? GetCurrentConferenceMeta() =>
         ReadThroughCache("conference-current", () => _context.Conferences
-            .Where(c => c.End > DateTime.UtcNow)
+            .Where(c => c.HighlightDate <= DateTime.UtcNow.Date)
             .OrderBy(c => c.End)
             .Select(c => new CurrentConferenceMeta { Name = c.Name, Slug = c.Slug })
             .FirstOrDefault()
