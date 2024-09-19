@@ -22,7 +22,7 @@
                             currentTime < conference.End.Value.Date.AddDays(1);
     }
 
-    bool isCfpOpen = true; //New logic will be added on issue #178
+    bool isCfpOpen = false; //New logic will be added on issue #178
     bool earlyBirdAvailable = false;
 
     int speakersLeft = conference.MinNumberOfSpeakers - conference.Speakers.Count;
@@ -47,7 +47,7 @@
         ("speakers", true),
         ("sessions", false),
         ("schedule", true),
-        ("tickets", true),
+        ("tickets", false),
         ("contact", true),
         ("members", false)
     }
@@ -180,17 +180,16 @@
                 <h1>Sponsors</h1>
             </div>
         </div>
-            <div class="row text-center">
+@*             <div class="row text-center">
                 <div class="col-lg-8 col-lg-offset-2">
                     <p>
                         Your organization can get in touch with hundreds of great software developers by becoming an exhibitor or a digital sponsor. It's an amazing opportunity!
                     </p>
                     <p>
-                        @* <a href="mailto:sponsors@swetugg.se">Questions about sponsoring: sponsors@swetugg.se</a> *@
                         <a href="/@slug/sponsorship" class="btn btn-default btn-lg">Read about our sponsorship packages</a>
                     </p>
                 </div>
-            </div>
+            </div> *@
         @{
             var exhibitors = conference.Sponsors.Where(s => s.Priority < 100).ToArray();
             var supportSponsors = conference.Sponsors.Where(s => s.Priority >= 100 && s.Priority < 200).ToArray();

@@ -1,12 +1,17 @@
 ## Set up a new conference
 
+### Reference
+See this commit 0b90b5eedcfbfe70c1b2850a243ae671905e4d9d for a reference on what to change
+- Things that aren't changed in this one
+  - Sessionize url
+
 ### Setup database
 1. In backoffice create a new conference with the desired slug (the slug is the name of the folder in the Pages folder).
 
 ### Create the new pages
 1. Copy the `Pages/{slug}` folder of the latest conference (assuming that you want the new page to look like the previous one).
 1. Use the desired slug (the one that you configured for the Conference database row) for the new conference as the name of the copied folder.
-1. Do the same for the `wwwroot/{slug}` folder. Your life will be easier if you pick the folder of the last conference that ran in the same city as the conference you're setting up, as we have different assets (mainly the colors of images and css variables) for different cities. But you should then copy over the swetugg.scss file from the last conference (regardless of city) as we've typically made style changes that we want to keep, and replace the variables section (tope of the .scss file) with the values from the last conference that ran in the same city as the conference you're setting up (this is a bit of a hassle, we should perhaps extract these into a variables.scss, or try even harder to use css variables)
+1. Do the same for the `wwwroot/{slug}` folder. Your life will be easier if you pick the folder of the last conference that ran in the same city as the conference you're setting up, as we have different assets (mainly the colors of images and css variables) for different cities. But you should then copy over the swetugg.scss file from the last conference (regardless of city) as we've typically made style changes that we want to keep, and replace the variables section (top of the .scss file) with the values from the last conference that ran in the same city as the conference you're setting up (this is a bit of a hassle, we should perhaps extract these into a variables.scss, or try even harder to use css variables)
 
 ### Update the new pages
 Change the following properties of the pages
@@ -20,7 +25,7 @@ Change the following properties of the pages
     1. `<h1 class="brand-heading">Swetugg <small>Göteborg</small></h1>`
     1. `<p class="intro-text">` change this to the correct date
     1. `<section id="previousLinks"` add a link to the previous conference (probably the one you copied the page from)
-    1. Update `<a href="https://sessionize.com/swetugg-goteborg-2024" class="btn btn-default btn-lg">Call for Speakers</a>` to the correct sessionize link. And the date for CFP end found in the `<p>` above.
+    1. Update `<a href="https://sessionize.com/swetugg-goteborg-2024" class="btn btn-default btn-lg">Call for Speakers</a>` to the correct sessionize link. And the date for CFP end found in the `<p>` above. Also have a look at if the `isCfpOpen` flag should be true or false, and if the text in the "Call for Speakers / Papers" section is correct.
     1. `<h3>Location</h3>` change the location below this tag.
     1. `<meta property="og:description" content="Swetugg Göteborg, a conference for dotnet developers October 2023" />`
 - `Now.cshtml`
