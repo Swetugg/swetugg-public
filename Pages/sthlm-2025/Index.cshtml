@@ -22,7 +22,7 @@
                             currentTime < conference.End.Value.Date.AddDays(1);
     }
 
-    bool isCfpOpen = false; //New logic will be added on issue #178
+    bool isCfpOpen = true; //New logic will be added on issue #178
     bool earlyBirdAvailable = false;
 
     int speakersLeft = conference.MinNumberOfSpeakers - conference.Speakers.Count;
@@ -67,7 +67,7 @@
                     <h1 class="brand-heading">Swetugg <small>Stockholm</small></h1>
                     <p class="intro-text">
                         by .NET developers, for .NET developers, <br />
-                        7-8 January 2025
+                        4-5 February 2025
                     </p>
                     <div class="intro-buttons">
                         @if (conferenceOngoing)
@@ -107,72 +107,7 @@
                </p>
             </div>
         </div>
-
-        <div class="row text-center space-at-bottom">
-            @* too old?
-                <div class="col-lg-6">
-                    <div class="video-wrapper">
-                        <div class="video-container">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/9L2GG7k4j0M" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div> *@
-            @* playlist isn't clear enough that it is that...
-                <div class="col-lg-12">
-                    <div class="video-wrapper">
-                        <div class="video-container">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PL5c9GayKwcrzMSDVQRg_jVwkPhF-X-QO0" title="Sessions from Swetugg Stockholm 2020" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div> *@
-            @* new images to 2020 needed here
-                <div class="col-lg-6">
-                    <a href="https://www.flickr.com/photos/swetugg/albums/with/72157669362129259" target="_blank"><img src="~/Content/@slug/img/swetugg_flickr2018.jpg" alt="Swetugg Flickr" class="img-responsive flickr-link" /></a>
-                </div> *@
-        </div>
-        <div class="row text-center">
-            <div class="col-lg-8 col-lg-offset-2">
-                <p>
-                    Looking for information or sessions from previous conferences? All material is archived here:
-                </p>
-                <ul class="list-inline banner-buttons">
-                    <li>
-                        <a href="/swetugg-2015" class="btn btn-default btn-lg">Stockholm 2015</a>
-                    </li>
-                    <li>
-                        <a href="/swetugg-2016" class="btn btn-default btn-lg">Stockholm 2016</a>
-                    </li>
-                    <li>
-                        <a href="/swetugg-2017" class="btn btn-default btn-lg">Stockholm 2017</a>
-                    </li>
-                    <li>
-                        <a href="/swetugg-2018" class="btn btn-default btn-lg">Stockholm 2018</a>
-                    </li>
-                    <li>
-                        <a href="/swetugg-2019" class="btn btn-default btn-lg">Stockholm 2019</a>
-                    </li>
-                    <li>
-                        <a href="/sthlm-2020" class="btn btn-default btn-lg">Stockholm 2020</a>
-                    </li>
-                    <li>
-                        <a href="/gbg-2022" class="btn btn-default btn-lg">Göteborg 2022</a>
-                    </li>
-                    <li>
-                        <a href="/sthlm-2023" class="btn btn-default btn-lg">Stockholm 2023</a>
-                    </li>
-                    <li>
-                        <a href="/gbg-2023" class="btn btn-default btn-lg">Göteborg 2023</a>
-                    </li>
-                    <li>
-                        <a href="/sthlm-2024" class="btn btn-default btn-lg">Stockholm 2024</a>
-                    </li>
-                    <li>
-                        <a href="/gbg-2024" class="btn btn-default btn-lg">Göteborg 2024</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="row margin-top">
+@*         <div class="row margin-top">
             <div class="blockquote-container col-lg-4">
                 <blockquote class="blockquote blockquote-small">
                         <p>&ldquo;Lots of good speakers with interest information from different kind of perspectives&bdquo;</p>
@@ -191,7 +126,7 @@
                     <footer class="blockquote-footer">Sponsor of Swetugg Stockholm 2020</footer>
                 </blockquote>
             </div>
-        </div>
+        </div> *@
     </div>
 </section>
 }
@@ -366,10 +301,10 @@
             {
                 <div class="row text-center ">
                     <div class="col-md-8 col-md-offset-2">
-                        <p>Would you like to be one of our speakers? Register your session(s) on our CFP via Sessionize page before 25 of May. Do you have any question regarding speaking at Swetugg? Just send us a email at <a href="mailto:speaker@swetugg.se">speaker@swetugg.se</a></p>
+                        <p>Would you like to be one of our speakers? Register your session(s) on our CFP via Sessionize page before 14 of October. Do you have any question regarding speaking at Swetugg? Just send us a email at <a href="mailto:speaker@swetugg.se">speaker@swetugg.se</a></p>
                         <ul class="list-inline banner-buttons">
                             <li>
-                                <a href="https://sessionize.com/swetugg-goteborg-2024" class="btn btn-default btn-lg">Call for Speakers</a>
+                                <a href="https://sessionize.com/swetugg-stockholm-2025" class="btn btn-default btn-lg">Call for Speakers</a>
                             </li>
                         </ul>
                     </div>

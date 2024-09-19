@@ -32,7 +32,7 @@ app.UseAuthorization();
 
 app.MapGet("/", async context =>
 {
-  context.Response.Redirect("/gbg-2024");
+  context.Response.Redirect("/sthlm-2025");
 });
 
 app.MapGet("/{slug}/now-feed", (string slug, IConferenceService conferenceService) =>

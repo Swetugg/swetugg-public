@@ -9,7 +9,7 @@
     if (conference == null)
         throw new Exception("Conference not found in database");
 
-    var currentConferenceMeta = conference.End < DateTime.UtcNow ? conferenceService.GetCurrentConferenceMeta() : null;
+    var currentConferenceMeta = conferenceService.GetCurrentConferenceMeta();
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -122,11 +122,14 @@
                         <a href="/@slug#sessions" data-target="#sessions">Sessions</a>
                     </li>*@
                     @* <li class="page-scroll">
-                    <a href="/@slug#schedule" data-target="#schedule">Schedule</a>
+                        <a href="/@slug#schedule" data-target="#schedule">Schedule</a>
                     </li> *@
-                    @*<li class="page-scroll">
-                    <a href="/@slug#tickets" data-target="#tickets">Tickets</a>
-                    </li>*@
+                    <li class="page-scroll">
+                        <a href="/@slug#tickets" data-target="#tickets">Tickets</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="/@slug/pastconferences">Past Conferences</a>
+                    </li>
                     <li class="page-scroll">
                         <a href="/@slug/codeofconduct">Code of Conduct</a>
                     </li>
