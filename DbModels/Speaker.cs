@@ -23,6 +23,8 @@ public partial class Speaker
 
     public string? GitHub { get; set; }
 
+    public string? LinkedIn { get; set; }
+
     public bool Published { get; set; }
 
     public int Priority { get; set; }
