@@ -22,7 +22,7 @@
                             currentTime < conference.End.Value.Date.AddDays(1);
     }
 
-    bool isCfpOpen = true; //New logic will be added on issue #178
+    bool isCfpOpen = false; //New logic will be added on issue #178
     bool earlyBirdAvailable = false;
 
     int speakersLeft = conference.MinNumberOfSpeakers - conference.Speakers.Count;
@@ -312,6 +312,7 @@
             }
             else
             {
+                @*<div class="row">
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
                             <p>
@@ -320,7 +321,6 @@
                             </p>
                         </div>
                     </div>
-                @*<div class="row">
                         <div class="col-md-10 col-md-offset-1">
                             <p>
                                 Our Call for Speakers for Swetugg Göteborg 2023 has ended.
@@ -337,13 +337,13 @@
                         </div>
                     </div>*@
 
-                @*<div class="row">
+                <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <p class="text-center">
                             We have started to select our speakers and will start publishing them soon.
                         </p>
                     </div>
-                </div>*@
+                </div>
             }
         </div>
     </section>
