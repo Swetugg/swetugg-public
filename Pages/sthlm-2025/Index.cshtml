@@ -22,7 +22,7 @@
                             currentTime < conference.End.Value.Date.AddDays(1);
     }
 
-    bool isCfpOpen = true; //New logic will be added on issue #178
+    bool isCfpOpen = false; //New logic will be added on issue #178
     bool earlyBirdAvailable = false;
 
     int speakersLeft = conference.MinNumberOfSpeakers - conference.Speakers.Count;
@@ -312,30 +312,26 @@
             }
             else
             {
-                    <div class="row">
+                    @*<div class="row">
                         <div class="col-md-10 col-md-offset-1">
                             <p>
                                 We will open up our call for speakers shortly. If you want to be added to our speaker mailing list or have any questions regarding
                                 speaking at Swetugg, don't hesitate to send us an email at <a href="mailto:speak@swetugg.se">speak@swetugg.se</a>.
                             </p>
                         </div>
-                    </div>
-                @*<div class="row">
+                    </div>*@
+                <div class="row">
                         <div class="col-md-10 col-md-offset-1">
                             <p>
-                                Our Call for Speakers for Swetugg Göteborg 2023 has ended.
+                                Our Call for Speakers for Swetugg Stockholm 2025 has ended.
                             </p>
                             <p>
                                 <em>Help, I missed the Call for Speakers!</em><br />
                                 There may still be a couple of vacant slots, so feel free to email us at <a href="mailto:speaker@swetugg.se">speaker@swetugg.se</a>
                                 and let us know what you'd like to talk about.
                             </p>
-                            <p>
-                                <em>When will I be notified?</em><br />
-                                We will get back to everyone who entered the open call for speakers before October 20th.
-                            </p>
                         </div>
-                    </div>*@
+                    </div>
 
                 @*<div class="row">
                     <div class="col-md-10 col-md-offset-1">
