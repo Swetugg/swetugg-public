@@ -635,12 +635,6 @@ footer,
   background: rgba(255, 255, 255, 0.2);
 }
 
-::selection {
-  text-shadow: none;
-  background: #fcfcfc;
-  background: rgba(255, 255, 255, 0.2);
-}
-
 img::-moz-selection {
   background: transparent;
 }
