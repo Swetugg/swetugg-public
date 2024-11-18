@@ -87,7 +87,16 @@
         "eric-r-johansson", "ericjohansson", new string[]{content}),
         ("Abdi Farah",
         "/img/team/abdi.farah.jfif",
-        "abdi92", "", new string[]{sponsors})
+        "abdi92", "", new string[]{sponsors}),
+        ("Svitlana Horodylova", 
+         "/img/team/Svitlana-Horodylova.jfif",   
+         "svitlana-horodylova", "", new string[]{socialMedia}),
+        ("Robert Milicevic", 
+         "/img/team/robert.milicevic.jfif",   
+         "robert-milicevic-5a2013149", "", new string[]{website}),
+        ("Stacy Cashmore", 
+         "/img/team/stacy.cashmore.jfif",   
+         "stacycash", "", new string[]{website})
         }.OrderBy(member => member.responsibilities.Any(r => boardResponsibilities.Contains(r)) ? 1 : 2)
         .ThenBy(member => member.name);
 }
